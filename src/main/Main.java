@@ -3,7 +3,7 @@ package main;
 import form.BanHangForm;
 import form.CapNhatKhachHang;
 import form.CapNhatNVForm;
-
+import form.NCCform;
 import form.CapNhatSanPhamForm;
 //import component.DefaultForm;
 import form.DatHangForm;
@@ -13,7 +13,7 @@ import form.HoaDonForm;
 import form.HomeForm;
 
 import form.LapHoaDonForm;
-import form.NCCForm;
+import form.NCCform;
 import form.NXBForm;
 import form.NhaCungCapForm;
 import form.NhanVienForm;
@@ -98,7 +98,7 @@ public class Main extends javax.swing.JFrame {
 					else if (subIndex == 2)
 						showForm(new TimKiemSanPhamForm());
 					else if (subIndex == 3)
-						showForm(new NhaCungCapForm());
+						showForm(new NCCform());
 					else if (subIndex == 4)
 						showForm(new ThongKeSanPhamForm());
 					break;
