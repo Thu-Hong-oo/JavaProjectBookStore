@@ -55,10 +55,10 @@ public class CapNhatSanPhamForm extends JPanel {
 	public CapNhatSanPhamForm() {
 		setBackground(Color.WHITE);
 		setLayout(null);
-		setSize(1100, 610);
+		setSize(1130, 670);
 		
 		JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.TOP);
-		tabbedPane.setBounds(10, 11, 1080, 588);
+		tabbedPane.setBounds(10, 11, 1110, 648);
 		add(tabbedPane);
 		
 		JPanel panelSach = new JPanel();
@@ -203,7 +203,7 @@ public class CapNhatSanPhamForm extends JPanel {
 				
 			}
 		});
-		btThemAnh.setBounds(856, 293, 87, 29);
+		btThemAnh.setBounds(856, 293, 98, 29);
 		panelSach.add(btThemAnh);
 		
 		JPanel panelVPP = new JPanel();

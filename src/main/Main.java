@@ -47,6 +47,7 @@ import javax.swing.UIDefaults;
 import javax.swing.UIManager;
 import javax.swing.border.Border;
 import javax.swing.border.TitledBorder;
+import javax.swing.plaf.nimbus.NimbusLookAndFeel;
 
 import java.awt.CardLayout;
 import java.awt.Color;
@@ -221,25 +222,28 @@ public class Main extends javax.swing.JFrame {
 //			e.printStackTrace();
 //		}}
 	public static void main(String[] args) {
-//		    try {
-//		        // here you can put the selected theme class name in JTattoo
-//		        UIManager.setLookAndFeel("com.jtattoo.plaf.acryl.AcrylLookAndFeel");
-//		    } catch (ClassNotFoundException ex) {
-//		        java.util.logging.Logger.getLogger(Main.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//		    } catch (InstantiationException ex) {
-//		        java.util.logging.Logger.getLogger(Main.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//		    } catch (IllegalAccessException ex) {
-//		        java.util.logging.Logger.getLogger(Main.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//		    } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-//		        java.util.logging.Logger.getLogger(Main.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//		    }
-//		    
+		
+		
+		 try {
+             // Sử dụng Nimbus Look and Feel
+             UIManager.setLookAndFeel(new NimbusLookAndFeel());
+
+             // Tùy chỉnh màu sắc cho header của bảng
+             UIManager.getLookAndFeelDefaults().put("TableHeader.background", new Color(105, 131, 150));
+             UIManager.getLookAndFeelDefaults().put("TableHeader.foreground", Color.WHITE);
+
+             // Tùy chỉnh màu sắc cho nút (button)
+             UIManager.getLookAndFeelDefaults().put("Button.background", new Color(105, 131, 150));
+         } catch (Exception e) {
+             e.printStackTrace();}
+
 		javax.swing.SwingUtilities.invokeLater(new Runnable() {
 			public void run() {
 				Main frame = new Main();
 				frame.setUndecorated(true);
-				frame.setVisible(true);
+				frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
 				frame.setLocationRelativeTo(null);
+				frame.setVisible(true);
 			}
 		});
 	}

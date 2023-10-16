@@ -46,11 +46,11 @@ public class CapNhatNVForm extends JPanel {
 	 */
 	public CapNhatNVForm() {
 		setLayout(null);
-		setSize(1100, 610);
+		setSize(1100, 650);
 	
 		JPanel panel = new JPanel();
 		panel.setBackground(Color.WHITE);
-		panel.setBounds(0, 0, 1114, 610);
+		panel.setBounds(0, 0, 1114, 639);
 		add(panel);
 		panel.setLayout(null);
 
