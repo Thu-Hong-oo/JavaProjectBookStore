@@ -134,13 +134,13 @@ public class MainTest extends JFrame {
     private void showForm(Component com) {
         if (com != null) {
             // Xóa tất cả các thành phần hiện tại trong body
-            body.removeAll();
+           body.removeAll();
             // Thêm mới thành phần vào body
             body.add(com);
             // Vẽ lại và cập nhật body
             body.repaint();
             body.revalidate();
-        }
+        } 
     }
 
     private void initComponents() {
