@@ -10,18 +10,18 @@ import javax.swing.table.TableModel;
 import javax.swing.JScrollPane;
 import javax.swing.border.TitledBorder;
 import javax.swing.border.EtchedBorder;
-import com.jgoodies.forms.layout.FormLayout;
-import com.jgoodies.forms.layout.ColumnSpec;
-import com.jgoodies.forms.layout.RowSpec;
+//import com.jgoodies.forms.layout.FormLayout;
+//import com.jgoodies.forms.layout.ColumnSpec;
+//import com.jgoodies.forms.layout.RowSpec;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.SystemColor;
 
-public class NCCform extends JPanel {
+public class NCCForm extends JPanel {
 
-	private static final long serialVersionUID = 1L;
+	
 	private JTable table;
 	private JTextField txtMaNCC;
 	private JTextField txtTenNCC;
@@ -32,10 +32,11 @@ public class NCCform extends JPanel {
 	/**
 	 * Create the panel.
 	 */
-	public NCCform() {
+	public NCCForm() {
 		setBackground(SystemColor.controlHighlight);
 		setLayout(null);
 		setSize(1130, 670);
+		setBackground(Color.WHITE);
 		
 		JPanel pnltieuDe = new JPanel();
 		pnltieuDe.setBackground(SystemColor.controlHighlight);
@@ -43,7 +44,7 @@ public class NCCform extends JPanel {
 		add(pnltieuDe);
 		
 		JLabel lblNewLabel = new JLabel("Quản Lý Danh Mục Đơn Vị Cung Cấp");
-		lblNewLabel.setForeground(Color.RED);
+		lblNewLabel.setForeground(Color.black);
 		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 45));
 		pnltieuDe.add(lblNewLabel);
 		
