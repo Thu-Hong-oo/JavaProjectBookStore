@@ -13,7 +13,8 @@ import form.HoaDonForm;
 import form.HomeForm;
 
 import form.LapHoaDonForm;
-//import form.NCCform;
+import form.NCCForm;
+
 import form.NXBForm;
 import form.NhaCungCapForm;
 import form.NhanVienForm;
@@ -98,8 +99,8 @@ public class Main extends javax.swing.JFrame {
 						showForm(new CapNhatSanPhamForm());
 					else if (subIndex == 2)
 						showForm(new TimKiemSanPhamForm());
-//					else if (subIndex == 3)
-//						showForm(new NCCform());
+					else if (subIndex == 3)
+						showForm(new NCCForm());
 					else if (subIndex == 4)
 						showForm(new ThongKeSanPhamForm());
 					break;

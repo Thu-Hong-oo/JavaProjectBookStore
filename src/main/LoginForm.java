@@ -85,7 +85,7 @@ public class LoginForm extends JFrame {
 		setSize(1000,600);
 		contentPane = new JPanel();
 		contentPane.setBorder(null);
-		contentPane.setBackground(new Color(137,174,178));
+		contentPane.setBackground(new Color(105, 131, 150));
 
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
