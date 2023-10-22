@@ -37,6 +37,10 @@ import java.awt.event.FocusAdapter;
 import java.awt.event.FocusEvent;
 import javax.swing.border.TitledBorder;
 
+/**
+ * @author Nguyen Thi Thu Hong
+ *
+ */
 public class LoginForm extends JFrame {
 
 	private JPanel contentPane;
@@ -63,10 +67,16 @@ public class LoginForm extends JFrame {
 			e.printStackTrace();
 		}
 		EventQueue.invokeLater(new Runnable() {
+			/**
+			 *
+			 */
+			/**
+			 *
+			 */
 			public void run() {
 				try {
 					LoginForm window = new LoginForm();
-//					 window.setUndecorated(true);
+					 window.setUndecorated(true);
 					window.setVisible(true);
 					
 				} catch (Exception e) {

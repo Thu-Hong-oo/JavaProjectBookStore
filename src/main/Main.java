@@ -189,8 +189,13 @@ public class Main extends javax.swing.JFrame {
 
 		try {
 			// here you can put the selected theme class name in JTattoo
-			UIManager.setLookAndFeel("com.jtattoo.plaf.luna.LunaLookAndFeel");
-		
+		//	UIManager.setLookAndFeel("com.jtattoo.plaf.luna.LunaLookAndFeel");
+		for(javax.swing.UIManager.LookAndFeelInfo infor : javax.swing.UIManager.getInstalledLookAndFeels()) {
+			if ("Windows Classic".equals(infor.getName())) {
+				javax.swing.UIManager.setLookAndFeel(infor.getClassName());
+				break;
+			}
+		}
 
 		} catch (ClassNotFoundException ex) {
 			java.util.logging.Logger.getLogger(Main.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
@@ -203,14 +208,18 @@ public class Main extends javax.swing.JFrame {
 		}
 		// Đặt các tùy chỉnh UI Defaults ở đây
 		UIDefaults defaults = UIManager.getLookAndFeelDefaults();
+		//set background
 		defaults.put("TableHeader.background", new Color(105, 131, 150)); // Đặt màu nền header của bảng
-		defaults.put("TableHeader.foreground", Color.WHITE); // Đặt màu chữ header của bảng
-		defaults.put("TableHeader.font", new Font("Tahoma", Font.BOLD, 13));
 		defaults.put("Table.background", Color.WHITE); // Đặt màu nền của bảng
 		defaults.put("Viewport.background", Color.WHITE); // Đặt màu nền cho JViewport của JScrollPane
 		defaults.put("Button.background", new Color(105, 131, 150));
-		defaults.put("Button.focusPainted", false); // Tắt viền focus
-
+		//set font all component
+		defaults.put("Button.font", new Font("Tahoma", Font.BOLD, 13));
+		defaults.put("Label.font", new Font("Tahoma", Font.BOLD, 13));
+		defaults.put("TableHeader.font",new Font("Tahoma", Font.BOLD, 12) );
+		//set color content
+		defaults.put("TableHeader.foreground", Color.WHITE); // Đặt màu chữ header của bảng
+		defaults.put("Button.foreground", Color.WHITE);
 		
 	}
 	

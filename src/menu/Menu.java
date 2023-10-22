@@ -15,6 +15,7 @@ import javax.swing.JComponent;
 import javax.swing.JPanel;
 
 import net.miginfocom.swing.MigLayout;
+import javax.swing.JLabel;
 
 public class Menu extends JComponent   {
 
@@ -32,6 +33,7 @@ public class Menu extends JComponent   {
 	private MenuEvent event;
 	private MigLayout layout;
 	private String[][] menuItems = new String[][] {
+	
 
 			{ "Hệ Thống", "Trang Chủ", "Giới Thiệu", "Đăng xuất", "Thoát" },
 			{ "Nhân Viên", "Cập Nhật", "Tìm Kiếm", "Bán Hàng", "Đặt Hàng", "Thống Kê" },
@@ -42,6 +44,7 @@ public class Menu extends JComponent   {
 	};
 
 	public Menu() {
+	
 		init();
 		
 	}
@@ -157,6 +160,7 @@ public class Menu extends JComponent   {
 	@Override
 	protected void paintComponent(Graphics grphcs) {
 		Graphics2D g2 = (Graphics2D) grphcs.create();
+		//set background
 		g2.setColor(new Color(105, 131, 150));
 		g2.fill(new Rectangle2D.Double(0, 0, getWidth(), getHeight()));
 		super.paintComponent(grphcs);

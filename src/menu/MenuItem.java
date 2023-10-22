@@ -25,8 +25,14 @@ import effect.RippleEffect;
  *         để tạo các mục trong menu của ứng dụng
  */
 public class MenuItem extends JButton implements ActionListener {
-	 private Color defaultBackgroundColor = new Color(105, 131, 150);
-	    private Color selectedBackgroundColor = new Color(63,94,119);
+/**
+	 * 
+	 */
+	private static final long serialVersionUID = -6486829496187864228L;
+	//	 private Color defaultForeGroundColor = new Color(132,144,162);
+//	    private Color selectedForeGroundColor = 
+	 private Color defaultForeGroundColor = Color.white;
+	    private Color selectedForeGroundColor =  new Color(27,38,54);
 	    private static MenuItem selectedMenuItem;
 
 	public float getAnimate() {
@@ -112,14 +118,14 @@ public class MenuItem extends JButton implements ActionListener {
             @Override
             public void mouseEntered(MouseEvent e) {
                 if (selectedMenuItem != MenuItem.this) {
-                    setBackground(selectedBackgroundColor);
+                	setForeground(selectedForeGroundColor);
                 }
             }
 
             @Override
             public void mouseExited(MouseEvent e) {
                 if (selectedMenuItem != MenuItem.this){
-                    setBackground(defaultBackgroundColor);
+                	setForeground(defaultForeGroundColor);
                 }
             }
             
@@ -136,13 +142,14 @@ public class MenuItem extends JButton implements ActionListener {
 
 	    private void select() {
 	        selectedMenuItem = this;
-	        setBackground(selectedBackgroundColor);
+//	        setBackground(selectedForeGroundColor);F
+	        setForeground(selectedForeGroundColor);
 	        repaint();
 	    }
 
 	    private void deselect() {
 	        selectedMenuItem = null;
-	        setBackground(defaultBackgroundColor);
+	        setForeground(defaultForeGroundColor);
 	        repaint();
 	    }
 

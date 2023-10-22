@@ -18,6 +18,9 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.SystemColor;
+import javax.swing.GroupLayout;
+import javax.swing.GroupLayout.Alignment;
+import javax.swing.LayoutStyle.ComponentPlacement;
 
 public class NCCForm extends JPanel {
 
@@ -34,14 +37,11 @@ public class NCCForm extends JPanel {
 	 */
 	public NCCForm() {
 		setBackground(SystemColor.controlHighlight);
-		setLayout(null);
 		setSize(1130, 670);
 		setBackground(Color.WHITE);
 		
 		JPanel pnltieuDe = new JPanel();
 		pnltieuDe.setBackground(SystemColor.controlHighlight);
-		pnltieuDe.setBounds(10, 10, 1090, 67);
-		add(pnltieuDe);
 		
 		JLabel lblNewLabel = new JLabel("Quản Lý Danh Mục Đơn Vị Cung Cấp");
 		lblNewLabel.setForeground(Color.black);
@@ -49,8 +49,6 @@ public class NCCForm extends JPanel {
 		pnltieuDe.add(lblNewLabel);
 		
 		JScrollPane scrBang = new JScrollPane();
-		scrBang.setBounds(10, 87, 1070, 197);
-		add(scrBang);
 		String[] column = { "Mã Nhà Cung Cấp", "Tên Nhà Cung Cấp", "Số Điện Thoại","Email","Địa chỉ" };
 		TableModel model = new DefaultTableModel(column, 0);
 		table = new JTable(model);
@@ -61,8 +59,6 @@ public class NCCForm extends JPanel {
 		JPanel pnlControl = new JPanel();
 		pnlControl.setForeground(new Color(0, 0, 0));
 		pnlControl.setBorder(new TitledBorder(new EtchedBorder(EtchedBorder.LOWERED, new Color(255, 255, 255), new Color(160, 160, 160)), "Thi\u1EBFt L\u1EADp Th\u00F4ng Tin Nh\u00E0 Cung C\u1EA5p", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 0)));
-		pnlControl.setBounds(10, 305, 1070, 211);
-		add(pnlControl);
 		pnlControl.setLayout(null);
 		
 		JLabel lblMaNCC = new JLabel("Mã Đơn Vị Cung Cấp:");
@@ -117,27 +113,62 @@ public class NCCForm extends JPanel {
 		
 		JButton btnThem = new JButton("Thêm");
 		btnThem.setFont(new Font("Tahoma", Font.BOLD, 12));
-		btnThem.setBounds(120, 526, 148, 51);
 		btnThem.setBackground(new Color(95, 158, 160));
-		add(btnThem);
 		
 		JButton btnSua = new JButton("Sửa");
 		btnSua.setFont(new Font("Tahoma", Font.BOLD, 12));
-		btnSua.setBounds(359, 526, 148, 51);
 		btnSua.setBackground(new Color(95, 158, 160));
-		add(btnSua);
 		
 		JButton btnXoa = new JButton("Xóa");
 		btnXoa.setBackground(new Color(95, 158, 160));
 		btnXoa.setFont(new Font("Tahoma", Font.BOLD, 12));
-		btnXoa.setBounds(595, 526, 148, 51);
-		add(btnXoa);
 		
 		JButton btnLamMoi = new JButton("Làm Mới");
 		btnLamMoi.setFont(new Font("Tahoma", Font.BOLD, 12));
-		btnLamMoi.setBounds(840, 526, 148, 51);
 		btnLamMoi.setBackground(new Color(95, 158, 160));
-		add(btnLamMoi);
+		GroupLayout groupLayout = new GroupLayout(this);
+		groupLayout.setHorizontalGroup(
+			groupLayout.createParallelGroup(Alignment.LEADING)
+				.addGroup(groupLayout.createSequentialGroup()
+					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
+						.addGroup(groupLayout.createSequentialGroup()
+							.addGap(10)
+							.addComponent(pnltieuDe, GroupLayout.PREFERRED_SIZE, 1090, GroupLayout.PREFERRED_SIZE))
+						.addGroup(groupLayout.createSequentialGroup()
+							.addGap(10)
+							.addComponent(scrBang, GroupLayout.PREFERRED_SIZE, 1070, GroupLayout.PREFERRED_SIZE))
+						.addGroup(groupLayout.createSequentialGroup()
+							.addGap(120)
+							.addComponent(btnThem, GroupLayout.PREFERRED_SIZE, 148, GroupLayout.PREFERRED_SIZE)
+							.addGap(91)
+							.addComponent(btnSua, GroupLayout.PREFERRED_SIZE, 148, GroupLayout.PREFERRED_SIZE)
+							.addGap(88)
+							.addComponent(btnXoa, GroupLayout.PREFERRED_SIZE, 148, GroupLayout.PREFERRED_SIZE)
+							.addGap(97)
+							.addComponent(btnLamMoi, GroupLayout.PREFERRED_SIZE, 148, GroupLayout.PREFERRED_SIZE))
+						.addGroup(groupLayout.createSequentialGroup()
+							.addGap(27)
+							.addComponent(pnlControl, GroupLayout.PREFERRED_SIZE, 1081, GroupLayout.PREFERRED_SIZE)))
+					.addContainerGap(22, Short.MAX_VALUE))
+		);
+		groupLayout.setVerticalGroup(
+			groupLayout.createParallelGroup(Alignment.LEADING)
+				.addGroup(groupLayout.createSequentialGroup()
+					.addGap(10)
+					.addComponent(pnltieuDe, GroupLayout.PREFERRED_SIZE, 67, GroupLayout.PREFERRED_SIZE)
+					.addGap(10)
+					.addComponent(scrBang, GroupLayout.PREFERRED_SIZE, 197, GroupLayout.PREFERRED_SIZE)
+					.addGap(33)
+					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
+						.addComponent(btnThem, GroupLayout.PREFERRED_SIZE, 51, GroupLayout.PREFERRED_SIZE)
+						.addComponent(btnSua, GroupLayout.PREFERRED_SIZE, 51, GroupLayout.PREFERRED_SIZE)
+						.addComponent(btnXoa, GroupLayout.PREFERRED_SIZE, 51, GroupLayout.PREFERRED_SIZE)
+						.addComponent(btnLamMoi, GroupLayout.PREFERRED_SIZE, 51, GroupLayout.PREFERRED_SIZE))
+					.addGap(107)
+					.addComponent(pnlControl, GroupLayout.PREFERRED_SIZE, 175, GroupLayout.PREFERRED_SIZE)
+					.addContainerGap(20, Short.MAX_VALUE))
+		);
+		setLayout(groupLayout);
 		
 		
 	}
