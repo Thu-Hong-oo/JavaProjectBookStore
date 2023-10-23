@@ -13,6 +13,8 @@ import java.awt.Font;
 import javax.swing.JTextField;
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
+import javax.swing.ImageIcon;
+import java.awt.Color;
 
 public class TimKiemKhachHangForm extends JPanel {
 	private DefaultTableModel model;
@@ -23,6 +25,7 @@ public class TimKiemKhachHangForm extends JPanel {
 	 * Create the panel.
 	 */
 	public TimKiemKhachHangForm() {
+		setBackground(Color.WHITE);
 		setSize(1100, 610);
 		
 		JLabel lbTieuDe = new JLabel("TÌM KIẾM KHÁCH HÀNG");
@@ -39,6 +42,7 @@ public class TimKiemKhachHangForm extends JPanel {
 		textField.setColumns(10);
 		
 		JLabel lblNewLabel_5 = new JLabel("Tìm kiếm theo số điện thoại");
+		lblNewLabel_5.setIcon(null);
 		lblNewLabel_5.setFont(new Font("Tahoma", Font.BOLD, 12));
 		
 		JLabel lblNewLabel_5_1 = new JLabel("Tìm kiếm theo tên khách hàng");

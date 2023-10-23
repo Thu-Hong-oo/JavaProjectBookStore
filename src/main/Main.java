@@ -65,13 +65,13 @@ public class Main extends javax.swing.JFrame {
 
 				case 1:
 					if (subIndex == 1)
-						showForm(new CapNhatNVForm());
-					else if (subIndex == 2)
-						showForm(new TimKiemNhanVienForm());
-					else if (subIndex == 3)
 						showForm(new BanHangForm());
-					else if (subIndex == 4)
+					else if (subIndex == 2)
 						showForm(new DatHangForm());
+					else if (subIndex == 3)
+						showForm(new CapNhatKhachHang());
+					else if (subIndex == 4)
+						showForm(new TimKiemNhanVienForm());
 					else if (subIndex == 5)
 						showForm(new ThongKeForm());
 					break;
@@ -96,8 +96,7 @@ public class Main extends javax.swing.JFrame {
 				case 4:
 					if (subIndex == 1)
 						showForm(new XemHoaDonForm());
-					else if (subIndex == 2)
-						showForm(new TimKiemHoaDonForm());
+					
 
 					break;
 

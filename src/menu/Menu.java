@@ -36,10 +36,10 @@ public class Menu extends JComponent   {
 	
 
 			{ "Hệ Thống", "Trang Chủ", "Giới Thiệu", "Đăng xuất", "Thoát" },
-			{ "Nhân Viên", "Cập Nhật", "Tìm Kiếm", "Bán Hàng", "Đặt Hàng", "Thống Kê" },
+			{ "Nhân Viên", "Bán Hàng", "Đặt Hàng", "Cập Nhật", "Tìm Kiếm", "Thống Kê" },
 			{ "Khách hàng", "Cập Nhật", "Tìm Kiếm" },
 			{ "Sản Phẩm", "Cập Nhật", "Tìm Kiếm", "Nhà Cung Cấp", "Khuyến Mãi" },
-			{ "Hóa Đơn", "Xem Hóa Đơn", "Tìm Kiếm" },
+			{ "Hóa Đơn", "Xem Hóa Đơn" },
 
 	};
 
