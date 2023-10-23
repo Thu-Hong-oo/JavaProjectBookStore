@@ -124,7 +124,7 @@ public class CapNhatNVForm extends JPanel {
 
 		btLamMoi = new JButton("Làm mới");
 		btLamMoi.setFont(new Font("Tahoma", Font.BOLD, 11));
-		btLamMoi.setBackground((new Color(105,131,150)));
+
 		btLamMoi.setBounds(575, 192, 86, 26);
 		panel_1.add(btLamMoi);
 
@@ -168,18 +168,18 @@ public class CapNhatNVForm extends JPanel {
 		
 		JRadioButton rdbtnNgh = new JRadioButton("Đã nghỉ");
 		rdbtnNgh.setBackground(Color.WHITE);
-		rdbtnNgh.setBounds(851, 120, 77, 23);
+
 		panel_1.add(rdbtnNgh);
 		
 		JButton btnToMi = new JButton("Tạo mới");
 		btnToMi.setFont(new Font("Tahoma", Font.BOLD, 11));
-		btnToMi.setBackground((new Color(105,131,150)));
+
 		btnToMi.setBounds(322, 194, 86, 26);
 		panel_1.add(btnToMi);
 		
 		JButton btnCpNht = new JButton("Cập nhật");
 		btnCpNht.setFont(new Font("Tahoma", Font.BOLD, 11));
-		btnCpNht.setBackground((new Color(105,131,150)));
+	
 		btnCpNht.setBounds(449, 194, 86, 26);
 		panel_1.add(btnCpNht);
 

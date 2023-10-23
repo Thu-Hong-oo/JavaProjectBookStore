@@ -16,6 +16,7 @@ import menu.Header;
 import menu.Menu;
 import menu.MenuEvent;
 import view.BanHangForm;
+import view.BanHangForm;
 import view.CapNhatKhachHang;
 import view.CapNhatNVForm;
 import view.CapNhatSanPhamForm;
@@ -119,18 +120,19 @@ public class Main extends javax.swing.JFrame {
 			body.revalidate();
 		}
 	}
+
 	private void removeButtonFocusBorder(Component component) {
-	    if (component instanceof javax.swing.JButton) {
-	        javax.swing.JButton button = (javax.swing.JButton) component;
-	        button.setFocusPainted(false);
-	    }
-	    
-	    if (component instanceof java.awt.Container) {
-	        java.awt.Container container = (java.awt.Container) component;
-	        for (Component child : container.getComponents()) {
-	            removeButtonFocusBorder(child);
-	        }
-	    }
+		if (component instanceof javax.swing.JButton) {
+			javax.swing.JButton button = (javax.swing.JButton) component;
+			button.setFocusPainted(false);
+		}
+
+		if (component instanceof java.awt.Container) {
+			java.awt.Container container = (java.awt.Container) component;
+			for (Component child : container.getComponents()) {
+				removeButtonFocusBorder(child);
+			}
+		}
 	}
 
 	private void initComponents() {
@@ -138,7 +140,7 @@ public class Main extends javax.swing.JFrame {
 		jPanel1 = new javax.swing.JPanel();
 		scrollPaneWin111 = new scroll.win.ScrollPaneWin11();
 		menu1 = new Menu();
-		menu1.setBackground(new Color( 255, 218, 185));
+		menu1.setBackground(new Color(255, 218, 185));
 		header1 = new Header();
 		body = new javax.swing.JPanel();
 
@@ -150,7 +152,6 @@ public class Main extends javax.swing.JFrame {
 
 		body.setBackground(Color.WHITE);
 		body.setLayout(new java.awt.BorderLayout());
-	
 
 		javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
 		jPanel1.setLayout(jPanel1Layout);
@@ -189,13 +190,13 @@ public class Main extends javax.swing.JFrame {
 
 		try {
 			// here you can put the selected theme class name in JTattoo
-		//	UIManager.setLookAndFeel("com.jtattoo.plaf.luna.LunaLookAndFeel");
-		for(javax.swing.UIManager.LookAndFeelInfo infor : javax.swing.UIManager.getInstalledLookAndFeels()) {
-			if ("Windows Classic".equals(infor.getName())) {
-				javax.swing.UIManager.setLookAndFeel(infor.getClassName());
-				break;
+			// UIManager.setLookAndFeel("com.jtattoo.plaf.luna.LunaLookAndFeel");
+			for (javax.swing.UIManager.LookAndFeelInfo infor : javax.swing.UIManager.getInstalledLookAndFeels()) {
+				if ("Windows Classic".equals(infor.getName())) {
+					javax.swing.UIManager.setLookAndFeel(infor.getClassName());
+					break;
+				}
 			}
-		}
 
 		} catch (ClassNotFoundException ex) {
 			java.util.logging.Logger.getLogger(Main.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
@@ -208,21 +209,24 @@ public class Main extends javax.swing.JFrame {
 		}
 		// Đặt các tùy chỉnh UI Defaults ở đây
 		UIDefaults defaults = UIManager.getLookAndFeelDefaults();
-		//set background
-		defaults.put("TableHeader.background", new Color(105, 131, 150)); // Đặt màu nền header của bảng
+		// set background
+		defaults.put("TableHeader.background", new Color(57, 73, 98)); // Đặt màu nền header của bảng
 		defaults.put("Table.background", Color.WHITE); // Đặt màu nền của bảng
 		defaults.put("Viewport.background", Color.WHITE); // Đặt màu nền cho JViewport của JScrollPane
-		defaults.put("Button.background", new Color(105, 131, 150));
-		//set font all component
+		defaults.put("Button.background", new Color(57, 73, 98));
+		// set font all component
 		defaults.put("Button.font", new Font("Tahoma", Font.BOLD, 13));
 		defaults.put("Label.font", new Font("Tahoma", Font.BOLD, 13));
-		defaults.put("TableHeader.font",new Font("Tahoma", Font.BOLD, 12) );
-		//set color content
+		defaults.put("TableHeader.font", new Font("Tahoma", Font.BOLD, 12));
+		// set color content
 		defaults.put("TableHeader.foreground", Color.WHITE); // Đặt màu chữ header của bảng
 		defaults.put("Button.foreground", Color.WHITE);
-		
+		defaults.put("TabbedPane.font", new Font("Tahoma", Font.BOLD, 15));
+		defaults.put("TabbedPane.foreground", Color.black);
+		defaults.put("TabbedPane.FocusPainted", false);
+		defaults.put("Button.select", new Color(54, 40, 69));
+
 	}
-	
 
 	public static void main(String[] args) {
 

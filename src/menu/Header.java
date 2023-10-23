@@ -19,7 +19,7 @@ public class Header extends JPanel {
 	private JLabel lblName;
 
 	public Header() {
-		setBackground(new Color(105, 131, 150));
+		setBackground(new Color(57,73,98));
 
 		JLabel lblILogo = new JLabel("");
 		lblILogo.setHorizontalAlignment(SwingConstants.CENTER);

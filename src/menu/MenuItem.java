@@ -29,8 +29,7 @@ public class MenuItem extends JButton implements ActionListener {
 	 * 
 	 */
 	private static final long serialVersionUID = -6486829496187864228L;
-	//	 private Color defaultForeGroundColor = new Color(132,144,162);
-//	    private Color selectedForeGroundColor = 
+
 	 private Color defaultForeGroundColor = Color.white;
 	    private Color selectedForeGroundColor =  new Color(27,38,54);
 	    private static MenuItem selectedMenuItem;
@@ -165,7 +164,7 @@ public class MenuItem extends JButton implements ActionListener {
 		setBorder(new EmptyBorder(9, 33, 9, 10));
 		setBorderPainted(false);
 		// background item hover
-		setBackground(new Color(105, 131, 150));
+		setBackground(new Color(57,73,98));
 		setOpaque(true);
 
 	}

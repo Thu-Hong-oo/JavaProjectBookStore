@@ -161,7 +161,7 @@ public class Menu extends JComponent   {
 	protected void paintComponent(Graphics grphcs) {
 		Graphics2D g2 = (Graphics2D) grphcs.create();
 		//set background
-		g2.setColor(new Color(105, 131, 150));
+		g2.setColor(new Color(57,73,98));
 		g2.fill(new Rectangle2D.Double(0, 0, getWidth(), getHeight()));
 		super.paintComponent(grphcs);
 	}
