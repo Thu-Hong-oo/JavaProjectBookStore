@@ -144,7 +144,7 @@ public class DatHangForm extends JPanel {
 		panel_3.add(lblTnKhchHng);
 		
 		JButton btnNewButton_1 = new JButton("Thay đổi");
-		btnNewButton_1.setBackground(Color.PINK);
+		
 		btnNewButton_1.setBounds(253, 49, 112, 29);
 		panel_3.add(btnNewButton_1);
 		
@@ -183,13 +183,13 @@ public class DatHangForm extends JPanel {
 		panel_2.add(lblDanhScht);
 		
 		JButton btnNewButton_2 = new JButton("Thanh Toán Ngay");
-		btnNewButton_2.setBackground(Color.PINK);
+	
 		btnNewButton_2.setFont(new Font("Tahoma", Font.BOLD, 13));
 		btnNewButton_2.setBounds(223, 550, 162, 27);
 		panel_2.add(btnNewButton_2);
 		
 		JButton btnNewButton_2_1 = new JButton("Tạo Phiếu Đặt");
-		btnNewButton_2_1.setBackground(Color.PINK);
+
 		btnNewButton_2_1.setFont(new Font("Tahoma", Font.BOLD, 13));
 		btnNewButton_2_1.setBounds(10, 550, 170, 29);
 		panel_2.add(btnNewButton_2_1);

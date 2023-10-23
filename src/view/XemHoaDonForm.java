@@ -46,6 +46,7 @@ import javax.swing.RowFilter.ComparisonType;
 import java.awt.Canvas;
 import javax.swing.border.EtchedBorder;
 import java.awt.SystemColor;
+import javax.swing.ImageIcon;
 
 public class XemHoaDonForm extends JPanel  {
 	private JTextField txtMaHD;
@@ -80,8 +81,9 @@ public class XemHoaDonForm extends JPanel  {
 
 
 		btnXoaRong = new JButton("Làm mới");
-		btnXoaRong.setBackground(new Color(250, 128, 114));
-		btnXoaRong.setBounds(908, 24, 100, 29);
+		btnXoaRong.setIcon(new ImageIcon(XemHoaDonForm.class.getResource("/icon/refresh.png")));
+
+		btnXoaRong.setBounds(908, 24, 135, 29);
 		add(btnXoaRong);
 		
 

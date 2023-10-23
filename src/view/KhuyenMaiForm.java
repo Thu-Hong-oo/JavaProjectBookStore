@@ -2,6 +2,7 @@ package view;
 
 import javax.swing.JPanel;
 
+import java.awt.Color;
 import java.awt.Component;
 
 import javax.swing.GroupLayout;
@@ -34,11 +35,11 @@ public class KhuyenMaiForm extends JPanel {
 	public KhuyenMaiForm() {
 
 		JLabel lblNewLabel = new JLabel("Danh Sách Mã Giảm Giá");
-		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 22));
 
 		JPanel panel = new JPanel();
 
-		String[] headerKhuyenMai = { "Mã Khuyến Mãi", "Tên Mã", "Loại Mã", " Mức Giảm", "Trạng Thái",
+		String[] headerKhuyenMai = { "Mã Khuyến Mãi", "Tên Mã", "Loại Mã", " Mức Giảm",
 				"Thời Gian Diễn Ra" };
 		modelKhuyenMai = new DefaultTableModel(headerKhuyenMai, 0);
 		tableKhuyenMai = new JTable(modelKhuyenMai);
@@ -53,7 +54,7 @@ public class KhuyenMaiForm extends JPanel {
 					.addGap(18)
 					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
 						.addComponent(panel, GroupLayout.PREFERRED_SIZE, 594, GroupLayout.PREFERRED_SIZE)
-						.addComponent(lblNewLabel, GroupLayout.PREFERRED_SIZE, 274, GroupLayout.PREFERRED_SIZE))
+						.addComponent(lblNewLabel, GroupLayout.PREFERRED_SIZE, 483, GroupLayout.PREFERRED_SIZE))
 					.addGap(18)
 					.addComponent(panel_1, GroupLayout.DEFAULT_SIZE, 348, Short.MAX_VALUE)
 					.addContainerGap())
@@ -115,18 +116,18 @@ public class KhuyenMaiForm extends JPanel {
 									.addPreferredGap(ComponentPlacement.RELATED)
 									.addComponent(dateChooser, GroupLayout.DEFAULT_SIZE, 196, Short.MAX_VALUE))
 								.addGroup(gl_panel_1.createSequentialGroup()
-									.addComponent(lblLoaiMa, GroupLayout.DEFAULT_SIZE, 104, Short.MAX_VALUE)
-									.addPreferredGap(ComponentPlacement.UNRELATED)
-									.addComponent(comboBox, 0, 191, Short.MAX_VALUE)
-									.addGap(8))
-								.addGroup(gl_panel_1.createSequentialGroup()
-									.addComponent(lblTnM, GroupLayout.PREFERRED_SIZE, 113, GroupLayout.PREFERRED_SIZE)
-									.addPreferredGap(ComponentPlacement.RELATED)
-									.addComponent(textField, GroupLayout.PREFERRED_SIZE, 190, GroupLayout.PREFERRED_SIZE))
-								.addGroup(gl_panel_1.createSequentialGroup()
 									.addComponent(lblMcGim, GroupLayout.PREFERRED_SIZE, 113, GroupLayout.PREFERRED_SIZE)
 									.addPreferredGap(ComponentPlacement.RELATED)
-									.addComponent(slider, GroupLayout.DEFAULT_SIZE, 196, Short.MAX_VALUE)))
+									.addComponent(slider, GroupLayout.DEFAULT_SIZE, 196, Short.MAX_VALUE))
+								.addGroup(gl_panel_1.createParallelGroup(Alignment.TRAILING)
+									.addGroup(gl_panel_1.createSequentialGroup()
+										.addComponent(lblLoaiMa, GroupLayout.DEFAULT_SIZE, 82, Short.MAX_VALUE)
+										.addGap(28)
+										.addComponent(comboBox, GroupLayout.PREFERRED_SIZE, 191, GroupLayout.PREFERRED_SIZE))
+									.addGroup(Alignment.LEADING, gl_panel_1.createSequentialGroup()
+										.addComponent(lblTnM, GroupLayout.PREFERRED_SIZE, 113, GroupLayout.PREFERRED_SIZE)
+										.addPreferredGap(ComponentPlacement.RELATED)
+										.addComponent(textField, GroupLayout.PREFERRED_SIZE, 190, GroupLayout.PREFERRED_SIZE))))
 							.addGap(25))
 						.addGroup(gl_panel_1.createSequentialGroup()
 							.addComponent(lblnNgy, GroupLayout.PREFERRED_SIZE, 113, GroupLayout.PREFERRED_SIZE)
@@ -134,11 +135,11 @@ public class KhuyenMaiForm extends JPanel {
 							.addComponent(dateChooser_1, GroupLayout.PREFERRED_SIZE, 190, GroupLayout.PREFERRED_SIZE)
 							.addContainerGap(31, Short.MAX_VALUE))
 						.addGroup(gl_panel_1.createSequentialGroup()
-							.addComponent(btnNewButton, GroupLayout.DEFAULT_SIZE, 110, Short.MAX_VALUE)
+							.addComponent(btnNewButton, GroupLayout.DEFAULT_SIZE, 108, Short.MAX_VALUE)
 							.addPreferredGap(ComponentPlacement.RELATED)
-							.addComponent(btnSa, GroupLayout.DEFAULT_SIZE, 102, Short.MAX_VALUE)
+							.addComponent(btnSa, GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
 							.addPreferredGap(ComponentPlacement.RELATED)
-							.addComponent(btnNewButton_1_1, GroupLayout.DEFAULT_SIZE, 110, Short.MAX_VALUE)
+							.addComponent(btnNewButton_1_1, GroupLayout.DEFAULT_SIZE, 108, Short.MAX_VALUE)
 							.addContainerGap())))
 		);
 		gl_panel_1.setVerticalGroup(
@@ -189,7 +190,21 @@ public class KhuyenMaiForm extends JPanel {
 		);
 
 		JPanel panel_2 = new JPanel();
-		tabbedPane.addTab("New tab", null, panel_2, null);
+		tabbedPane.addTab("Tất Cả", null, panel_2, null);
+
+		JPanel panel_3 = new JPanel();
+		tabbedPane.addTab("Đang Diễn Ra", null, panel_3, null);
+
+		JPanel panel_4 = new JPanel();
+		tabbedPane.addTab("Sắp Diễn Ra", null, panel_4, null);
+
+		JPanel panel_5 = new JPanel();
+		tabbedPane.addTab("Đã Kết Thúc", null, panel_5, null);
+		
+		tabbedPane.setBackground(new Color(105, 131, 150));
+		tabbedPane.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		
+		
 
 		GroupLayout gl_panel_2 = new GroupLayout(panel_2);
 		gl_panel_2.setHorizontalGroup(
@@ -209,14 +224,6 @@ public class KhuyenMaiForm extends JPanel {
 
 		panel_2.setLayout(gl_panel_2);
 
-		JPanel panel_3 = new JPanel();
-		tabbedPane.addTab("New tab", null, panel_3, null);
-
-		JPanel panel_4 = new JPanel();
-		tabbedPane.addTab("New tab", null, panel_4, null);
-
-		JPanel panel_5 = new JPanel();
-		tabbedPane.addTab("New tab", null, panel_5, null);
 		GroupLayout gl_panel_5 = new GroupLayout(panel_5);
 		gl_panel_5
 				.setHorizontalGroup(gl_panel_5.createParallelGroup(Alignment.LEADING).addGap(0, 588, Short.MAX_VALUE));
