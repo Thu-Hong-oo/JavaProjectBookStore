@@ -23,7 +23,7 @@ import view.DatHangForm;
 import view.GioiThieuForm;
 import view.HomeForm;
 import view.KhuyenMaiForm;
-import view.NCCForm;
+import view.NhaCungCapForm;
 import view.ThongKeForm;
 import view.TimKiemHoaDonForm;
 import view.TimKiemKhachHangForm;
@@ -87,12 +87,12 @@ public class Main extends javax.swing.JFrame {
 					else if (subIndex == 2)
 						showForm(new TimKiemSanPhamForm());
 					else if (subIndex == 3)
-						showForm(new NCCForm());
+						showForm(new NhaCungCapForm());
 					else if (subIndex == 4)
 						showForm(new KhuyenMaiForm());
 					break;
 
-				case 5:
+				case 4:
 					if (subIndex == 1)
 						showForm(new XemHoaDonForm());
 					else if (subIndex == 2)

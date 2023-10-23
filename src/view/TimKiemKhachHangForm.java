@@ -11,6 +11,8 @@ import entity.KhachHang;
 import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.JTextField;
+import javax.swing.GroupLayout;
+import javax.swing.GroupLayout.Alignment;
 
 public class TimKiemKhachHangForm extends JPanel {
 	private DefaultTableModel model;
@@ -22,16 +24,11 @@ public class TimKiemKhachHangForm extends JPanel {
 	 */
 	public TimKiemKhachHangForm() {
 		setSize(1100, 610);
-		setLayout(null);
 		
-		JLabel lbTieuDe = new JLabel("TÌM KIẾM KHÁCh ");
-		lbTieuDe.setBounds(210, 11, 597, 78);
-		lbTieuDe.setFont(new Font("Tahoma", Font.PLAIN, 60));
-		add(lbTieuDe);
+		JLabel lbTieuDe = new JLabel("TÌM KIẾM KHÁCH HÀNG");
+		lbTieuDe.setFont(new Font("Tahoma", Font.PLAIN, 52));
 		
 		JScrollPane scrollPane_1 = new JScrollPane();
-		scrollPane_1.setBounds(36, 311, 900, 288);
-		this.add(scrollPane_1);
 		String[] column = { "Mã KH", "Tên KH","Địa chỉ", "SDT", "Email" };
 		model = new DefaultTableModel(column, 0);
 		table = new JTable(model);
@@ -40,22 +37,55 @@ public class TimKiemKhachHangForm extends JPanel {
 		
 		textField = new JTextField();
 		textField.setColumns(10);
-		textField.setBounds(300, 149, 556, 25);
-		add(textField);
 		
 		JLabel lblNewLabel_5 = new JLabel("Tìm kiếm theo số điện thoại");
 		lblNewLabel_5.setFont(new Font("Tahoma", Font.BOLD, 12));
-		lblNewLabel_5.setBounds(83, 150, 190, 21);
-		add(lblNewLabel_5);
 		
 		JLabel lblNewLabel_5_1 = new JLabel("Tìm kiếm theo tên khách hàng");
 		lblNewLabel_5_1.setFont(new Font("Tahoma", Font.BOLD, 12));
-		lblNewLabel_5_1.setBounds(83, 201, 190, 21);
-		add(lblNewLabel_5_1);
 		
 		textField_1 = new JTextField();
 		textField_1.setColumns(10);
-		textField_1.setBounds(300, 200, 556, 25);
-		add(textField_1);
+		GroupLayout groupLayout = new GroupLayout(this);
+		groupLayout.setHorizontalGroup(
+			groupLayout.createParallelGroup(Alignment.LEADING)
+				.addGroup(groupLayout.createSequentialGroup()
+					.addGap(210)
+					.addComponent(lbTieuDe, GroupLayout.PREFERRED_SIZE, 672, GroupLayout.PREFERRED_SIZE))
+				.addGroup(groupLayout.createSequentialGroup()
+					.addGap(83)
+					.addComponent(lblNewLabel_5, GroupLayout.PREFERRED_SIZE, 190, GroupLayout.PREFERRED_SIZE)
+					.addGap(27)
+					.addComponent(textField, GroupLayout.PREFERRED_SIZE, 556, GroupLayout.PREFERRED_SIZE))
+				.addGroup(groupLayout.createSequentialGroup()
+					.addGap(83)
+					.addComponent(lblNewLabel_5_1, GroupLayout.PREFERRED_SIZE, 190, GroupLayout.PREFERRED_SIZE)
+					.addGap(27)
+					.addComponent(textField_1, GroupLayout.PREFERRED_SIZE, 556, GroupLayout.PREFERRED_SIZE))
+				.addGroup(groupLayout.createSequentialGroup()
+					.addGap(36)
+					.addComponent(scrollPane_1, GroupLayout.PREFERRED_SIZE, 900, GroupLayout.PREFERRED_SIZE))
+		);
+		groupLayout.setVerticalGroup(
+			groupLayout.createParallelGroup(Alignment.LEADING)
+				.addGroup(groupLayout.createSequentialGroup()
+					.addGap(11)
+					.addComponent(lbTieuDe, GroupLayout.PREFERRED_SIZE, 78, GroupLayout.PREFERRED_SIZE)
+					.addGap(60)
+					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
+						.addGroup(groupLayout.createSequentialGroup()
+							.addGap(1)
+							.addComponent(lblNewLabel_5, GroupLayout.PREFERRED_SIZE, 21, GroupLayout.PREFERRED_SIZE))
+						.addComponent(textField, GroupLayout.PREFERRED_SIZE, 25, GroupLayout.PREFERRED_SIZE))
+					.addGap(26)
+					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
+						.addGroup(groupLayout.createSequentialGroup()
+							.addGap(1)
+							.addComponent(lblNewLabel_5_1, GroupLayout.PREFERRED_SIZE, 21, GroupLayout.PREFERRED_SIZE))
+						.addComponent(textField_1, GroupLayout.PREFERRED_SIZE, 25, GroupLayout.PREFERRED_SIZE))
+					.addGap(86)
+					.addComponent(scrollPane_1, GroupLayout.PREFERRED_SIZE, 288, GroupLayout.PREFERRED_SIZE))
+		);
+		setLayout(groupLayout);
 	}
 }

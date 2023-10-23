@@ -35,6 +35,9 @@ import java.awt.SystemColor;
 import javax.swing.UIManager;
 
 import com.toedter.calendar.JDateChooser;
+import javax.swing.GroupLayout;
+import javax.swing.GroupLayout.Alignment;
+import javax.swing.LayoutStyle.ComponentPlacement;
 
 public class CapNhatKhachHang extends JPanel{
 	/**
@@ -55,7 +58,6 @@ public class CapNhatKhachHang extends JPanel{
 	private JDateChooser dateChooserNgaySinh;
 
 			public CapNhatKhachHang() {
-				setLayout(null);
 				setSize(1100, 610);
 				JPanel panel = new JPanel();
 				panel.setBackground(SystemColor.controlHighlight);
@@ -63,8 +65,6 @@ public class CapNhatKhachHang extends JPanel{
 						new EtchedBorder(EtchedBorder.LOWERED, new Color(255, 255, 255), new Color(160, 160, 160)),
 						"Thiết lập thông tin khách hàng", TitledBorder.LEFT, TitledBorder.TOP, null,
 						new Color(0, 0, 0)));
-				panel.setBounds(20, 22, 1070, 279);
-				add(panel);
 				panel.setLayout(null);
 				JLabel lblNewLabel = new JLabel("Mã khách hàng:");
 				lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 12));
@@ -141,15 +141,17 @@ public class CapNhatKhachHang extends JPanel{
 				panel_1.setLayout(null);
 
 				btnNewButton_1 = new JButton("Thêm");
+				btnNewButton_1.setIcon(new ImageIcon(CapNhatKhachHang.class.getResource("/icon/add.png")));
 	
-				btnNewButton_1.setBackground(new Color(95, 158, 160));
+				
 				btnNewButton_1.setFont(new Font("Tahoma", Font.BOLD, 11));
 				btnNewButton_1.setBounds(10, 11, 120, 40);
 				panel_1.add(btnNewButton_1);
 
 				btnNewButton_1_1 = new JButton("Sửa");
+				btnNewButton_1_1.setIcon(new ImageIcon(CapNhatKhachHang.class.getResource("/icon/edit.png")));
 	
-				btnNewButton_1_1.setBackground(new Color(95, 158, 160));
+		
 				btnNewButton_1_1.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
 					}
@@ -159,7 +161,8 @@ public class CapNhatKhachHang extends JPanel{
 				panel_1.add(btnNewButton_1_1);
 
 				btnNewButton_1_2 = new JButton("Làm mới");
-				btnNewButton_1_2.setBackground(new Color(95, 158, 160));
+				btnNewButton_1_2.setIcon(new ImageIcon(CapNhatKhachHang.class.getResource("/icon/refresh.png")));
+				
 				btnNewButton_1_2.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
 					}
@@ -169,8 +172,9 @@ public class CapNhatKhachHang extends JPanel{
 				panel_1.add(btnNewButton_1_2);
 
 				btnNewButton_1_1_1 = new JButton("Xóa");
+				btnNewButton_1_1_1.setIcon(new ImageIcon(CapNhatKhachHang.class.getResource("/icon/delete.png")));
 				btnNewButton_1_1_1.setFont(new Font("Tahoma", Font.BOLD, 11));
-				btnNewButton_1_1_1.setBackground(new Color(95, 158, 160));
+	
 				btnNewButton_1_1_1.setBounds(10, 120, 120, 40);
 				panel_1.add(btnNewButton_1_1_1);
 
@@ -201,8 +205,6 @@ public class CapNhatKhachHang extends JPanel{
 				JPanel panel_2 = new JPanel();
 				panel_2.setBorder(UIManager.getBorder("TitledBorder.border"));
 				panel_2.setBackground(SystemColor.controlHighlight);
-				panel_2.setBounds(20, 313, 1070, 320);
-				add(panel_2);
 				panel_2.setLayout(null);
 				
 				JScrollPane scrollPane_1 = new JScrollPane();
@@ -214,6 +216,26 @@ public class CapNhatKhachHang extends JPanel{
 				table = new JTable(model);
 				scrollPane_1.setViewportView(table);
 				table.setRowSelectionAllowed(true);
+				GroupLayout groupLayout = new GroupLayout(this);
+				groupLayout.setHorizontalGroup(
+					groupLayout.createParallelGroup(Alignment.LEADING)
+						.addGroup(Alignment.TRAILING, groupLayout.createSequentialGroup()
+							.addGap(20)
+							.addGroup(groupLayout.createParallelGroup(Alignment.TRAILING)
+								.addComponent(panel_2, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 1070, Short.MAX_VALUE)
+								.addComponent(panel, Alignment.LEADING, 0, 0, Short.MAX_VALUE))
+							.addContainerGap())
+				);
+				groupLayout.setVerticalGroup(
+					groupLayout.createParallelGroup(Alignment.LEADING)
+						.addGroup(groupLayout.createSequentialGroup()
+							.addGap(23)
+							.addComponent(panel, GroupLayout.PREFERRED_SIZE, 274, GroupLayout.PREFERRED_SIZE)
+							.addGap(7)
+							.addComponent(panel_2, GroupLayout.DEFAULT_SIZE, 295, Short.MAX_VALUE)
+							.addContainerGap())
+				);
+				setLayout(groupLayout);
 			}
 
 			
