@@ -70,6 +70,7 @@ import java.awt.SystemColor;
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.LayoutStyle.ComponentPlacement;
+import javax.swing.JSeparator;
 
 public class DatHangForm extends JPanel {
 	private JTextField txtMaKH;
@@ -105,8 +106,6 @@ public class DatHangForm extends JPanel {
 	private JRadioButton rbNam;
 	private JRadioButton rbNu;
 	private JTable tblSach;
-
-	private JButton btThayDoi;
 	private JButton btnLamMoiGioHang;
 	private JButton btnThemSP;
 	private JTextField textField;
@@ -155,9 +154,6 @@ public class DatHangForm extends JPanel {
 		lbMaKH.setFont(new Font("Tahoma", Font.BOLD, 12));
 		JLabel lbTenKH = new JLabel("Tên Khách Hàng");
 		lbTenKH.setFont(new Font("Tahoma", Font.BOLD, 12));
-
-		btThayDoi = new JButton("Thay đổi");
-		btThayDoi.setIcon(new ImageIcon(DatHangForm.class.getResource("/icon/edit.png")));
 		txtMaKH = new JTextField("KH000");
 		txtMaKH.setColumns(10);
 		txtTenKH = new JTextField("Khách bán lẻ");
@@ -171,7 +167,7 @@ public class DatHangForm extends JPanel {
 		JLabel lbVND = new JLabel("VND");
 		lbVND.setFont(new Font("SansSerif", Font.BOLD, 12));
 
-		JLabel lblHnhThcThanh = new JLabel("Hình thức thanh toán:");
+		JLabel lblHnhThcThanh = new JLabel("Hình thức giao Hàng:");
 		lblHnhThcThanh.setFont(new Font("Tahoma", Font.BOLD, 12));
 
 		JLabel lblGhiCh = new JLabel("Ghi chú");
@@ -331,27 +327,37 @@ public class DatHangForm extends JPanel {
 		
 		textField_2 = new JTextField("");
 		textField_2.setColumns(10);
+		
+		JButton btThayDoi = new JButton("Thay đổi");
+		
+		JSeparator separator = new JSeparator();
 		GroupLayout gl_panelDonHang_1 = new GroupLayout(panelDonHang_1);
 		gl_panelDonHang_1.setHorizontalGroup(
 			gl_panelDonHang_1.createParallelGroup(Alignment.TRAILING)
 				.addGroup(gl_panelDonHang_1.createSequentialGroup()
-					.addContainerGap()
-					.addGroup(gl_panelDonHang_1.createParallelGroup(Alignment.LEADING, false)
-						.addComponent(lblaCh, GroupLayout.PREFERRED_SIZE, 82, GroupLayout.PREFERRED_SIZE)
-						.addComponent(lblSdt, GroupLayout.PREFERRED_SIZE, 74, GroupLayout.PREFERRED_SIZE)
-						.addComponent(lbMaKH, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-						.addComponent(lbTenKH, GroupLayout.PREFERRED_SIZE, 123, GroupLayout.PREFERRED_SIZE))
-					.addGap(34)
-					.addGroup(gl_panelDonHang_1.createParallelGroup(Alignment.TRAILING)
-						.addComponent(txtMaKH, GroupLayout.PREFERRED_SIZE, 154, GroupLayout.PREFERRED_SIZE)
-						.addComponent(txtTenKH, GroupLayout.PREFERRED_SIZE, 154, GroupLayout.PREFERRED_SIZE)
-						.addComponent(textField_1, GroupLayout.PREFERRED_SIZE, 154, GroupLayout.PREFERRED_SIZE)
-						.addComponent(textField_2, GroupLayout.PREFERRED_SIZE, 154, GroupLayout.PREFERRED_SIZE))
-					.addContainerGap())
-				.addGroup(gl_panelDonHang_1.createSequentialGroup()
-					.addGap(94)
-					.addComponent(btThayDoi, GroupLayout.DEFAULT_SIZE, 138, Short.MAX_VALUE)
-					.addGap(105))
+					.addGroup(gl_panelDonHang_1.createParallelGroup(Alignment.LEADING)
+						.addGroup(gl_panelDonHang_1.createSequentialGroup()
+							.addContainerGap()
+							.addGroup(gl_panelDonHang_1.createParallelGroup(Alignment.LEADING, false)
+								.addGroup(gl_panelDonHang_1.createSequentialGroup()
+									.addGroup(gl_panelDonHang_1.createParallelGroup(Alignment.LEADING)
+										.addComponent(lbMaKH)
+										.addComponent(lbTenKH, GroupLayout.PREFERRED_SIZE, 123, GroupLayout.PREFERRED_SIZE)
+										.addComponent(lblaCh, GroupLayout.PREFERRED_SIZE, 82, GroupLayout.PREFERRED_SIZE))
+									.addGap(34)
+									.addGroup(gl_panelDonHang_1.createParallelGroup(Alignment.TRAILING)
+										.addComponent(txtMaKH, GroupLayout.PREFERRED_SIZE, 154, GroupLayout.PREFERRED_SIZE)
+										.addComponent(txtTenKH, GroupLayout.PREFERRED_SIZE, 154, GroupLayout.PREFERRED_SIZE)
+										.addComponent(textField_2, GroupLayout.PREFERRED_SIZE, 154, GroupLayout.PREFERRED_SIZE)))
+								.addGroup(gl_panelDonHang_1.createSequentialGroup()
+									.addComponent(lblSdt, GroupLayout.PREFERRED_SIZE, 74, GroupLayout.PREFERRED_SIZE)
+									.addPreferredGap(ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+									.addComponent(textField_1, GroupLayout.PREFERRED_SIZE, 154, GroupLayout.PREFERRED_SIZE))))
+						.addComponent(separator, GroupLayout.PREFERRED_SIZE, 340, GroupLayout.PREFERRED_SIZE)
+						.addGroup(gl_panelDonHang_1.createSequentialGroup()
+							.addGap(103)
+							.addComponent(btThayDoi, GroupLayout.PREFERRED_SIZE, 115, GroupLayout.PREFERRED_SIZE)))
+					.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
 		);
 		gl_panelDonHang_1.setVerticalGroup(
 			gl_panelDonHang_1.createParallelGroup(Alignment.LEADING)
@@ -360,24 +366,22 @@ public class DatHangForm extends JPanel {
 					.addGroup(gl_panelDonHang_1.createParallelGroup(Alignment.BASELINE)
 						.addComponent(lbMaKH, GroupLayout.PREFERRED_SIZE, 25, GroupLayout.PREFERRED_SIZE)
 						.addComponent(txtMaKH, GroupLayout.PREFERRED_SIZE, 28, GroupLayout.PREFERRED_SIZE))
-					.addGroup(gl_panelDonHang_1.createParallelGroup(Alignment.LEADING)
-						.addGroup(gl_panelDonHang_1.createSequentialGroup()
-							.addPreferredGap(ComponentPlacement.RELATED)
-							.addComponent(txtTenKH, GroupLayout.PREFERRED_SIZE, 28, GroupLayout.PREFERRED_SIZE)
-							.addGap(16)
-							.addComponent(textField_1, GroupLayout.PREFERRED_SIZE, 28, GroupLayout.PREFERRED_SIZE))
-						.addGroup(gl_panelDonHang_1.createSequentialGroup()
-							.addGap(24)
-							.addComponent(lbTenKH, GroupLayout.PREFERRED_SIZE, 25, GroupLayout.PREFERRED_SIZE)
-							.addPreferredGap(ComponentPlacement.UNRELATED)
-							.addComponent(lblSdt, GroupLayout.PREFERRED_SIZE, 25, GroupLayout.PREFERRED_SIZE)))
+					.addPreferredGap(ComponentPlacement.RELATED)
+					.addGroup(gl_panelDonHang_1.createParallelGroup(Alignment.BASELINE)
+						.addComponent(txtTenKH, GroupLayout.PREFERRED_SIZE, 28, GroupLayout.PREFERRED_SIZE)
+						.addComponent(lbTenKH, GroupLayout.PREFERRED_SIZE, 25, GroupLayout.PREFERRED_SIZE))
+					.addPreferredGap(ComponentPlacement.UNRELATED)
+					.addComponent(btThayDoi, GroupLayout.PREFERRED_SIZE, 28, GroupLayout.PREFERRED_SIZE)
+					.addPreferredGap(ComponentPlacement.RELATED)
+					.addComponent(separator, GroupLayout.PREFERRED_SIZE, 7, GroupLayout.PREFERRED_SIZE)
+					.addPreferredGap(ComponentPlacement.RELATED)
+					.addGroup(gl_panelDonHang_1.createParallelGroup(Alignment.BASELINE)
+						.addComponent(lblSdt, GroupLayout.PREFERRED_SIZE, 25, GroupLayout.PREFERRED_SIZE)
+						.addComponent(textField_1, GroupLayout.PREFERRED_SIZE, 28, GroupLayout.PREFERRED_SIZE))
 					.addPreferredGap(ComponentPlacement.UNRELATED)
 					.addGroup(gl_panelDonHang_1.createParallelGroup(Alignment.LEADING)
 						.addComponent(lblaCh, GroupLayout.PREFERRED_SIZE, 25, GroupLayout.PREFERRED_SIZE)
-						.addGroup(gl_panelDonHang_1.createSequentialGroup()
-							.addComponent(textField_2, GroupLayout.PREFERRED_SIZE, 64, GroupLayout.PREFERRED_SIZE)
-							.addGap(11)
-							.addComponent(btThayDoi, GroupLayout.PREFERRED_SIZE, 28, GroupLayout.PREFERRED_SIZE)))
+						.addComponent(textField_2, GroupLayout.PREFERRED_SIZE, 64, GroupLayout.PREFERRED_SIZE))
 					.addContainerGap())
 		);
 		panelDonHang_1.setLayout(gl_panelDonHang_1);
@@ -396,26 +400,32 @@ public class DatHangForm extends JPanel {
 					.addComponent(dateChooserNgaytao, GroupLayout.PREFERRED_SIZE, 167, GroupLayout.PREFERRED_SIZE))
 				.addGroup(gl_panelDonHang.createSequentialGroup()
 					.addGap(10)
-					.addComponent(lblHnhThcThanh, GroupLayout.PREFERRED_SIZE, 152, GroupLayout.PREFERRED_SIZE)
-					.addGap(6)
-					.addComponent(cmbHinhThucThanhToan, GroupLayout.PREFERRED_SIZE, 173, GroupLayout.PREFERRED_SIZE))
-				.addGroup(gl_panelDonHang.createSequentialGroup()
-					.addGap(21)
-					.addGroup(gl_panelDonHang.createParallelGroup(Alignment.LEADING)
-						.addComponent(btnXuatHoaDon, GroupLayout.PREFERRED_SIZE, 145, GroupLayout.PREFERRED_SIZE)
-						.addComponent(lblGhiCh, GroupLayout.PREFERRED_SIZE, 97, GroupLayout.PREFERRED_SIZE))
-					.addGap(18)
-					.addGroup(gl_panelDonHang.createParallelGroup(Alignment.LEADING)
-						.addComponent(textAreaGhiChu, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-						.addComponent(btLamMoiHD, GroupLayout.PREFERRED_SIZE, 134, GroupLayout.PREFERRED_SIZE)))
-				.addGroup(gl_panelDonHang.createSequentialGroup()
-					.addGap(10)
 					.addComponent(lbtogtin, GroupLayout.PREFERRED_SIZE, 97, GroupLayout.PREFERRED_SIZE)
 					.addGap(198)
 					.addComponent(lbVND, GroupLayout.PREFERRED_SIZE, 55, GroupLayout.PREFERRED_SIZE))
 				.addGroup(gl_panelDonHang.createSequentialGroup()
 					.addGap(3)
 					.addComponent(panelDonHang_1, GroupLayout.PREFERRED_SIZE, 343, GroupLayout.PREFERRED_SIZE))
+				.addGroup(gl_panelDonHang.createSequentialGroup()
+					.addGroup(gl_panelDonHang.createParallelGroup(Alignment.LEADING)
+						.addGroup(gl_panelDonHang.createSequentialGroup()
+							.addGap(10)
+							.addComponent(lblHnhThcThanh, GroupLayout.PREFERRED_SIZE, 152, GroupLayout.PREFERRED_SIZE))
+						.addGroup(gl_panelDonHang.createSequentialGroup()
+							.addContainerGap()
+							.addComponent(lblGhiCh, GroupLayout.PREFERRED_SIZE, 97, GroupLayout.PREFERRED_SIZE))
+						.addGroup(gl_panelDonHang.createSequentialGroup()
+							.addContainerGap()
+							.addComponent(btnXuatHoaDon, GroupLayout.PREFERRED_SIZE, 145, GroupLayout.PREFERRED_SIZE)))
+					.addGroup(gl_panelDonHang.createParallelGroup(Alignment.LEADING)
+						.addGroup(gl_panelDonHang.createSequentialGroup()
+							.addGap(6)
+							.addGroup(gl_panelDonHang.createParallelGroup(Alignment.LEADING, false)
+								.addComponent(cmbHinhThucThanhToan, 0, 173, Short.MAX_VALUE)
+								.addComponent(textAreaGhiChu)))
+						.addGroup(gl_panelDonHang.createSequentialGroup()
+							.addGap(31)
+							.addComponent(btLamMoiHD, GroupLayout.PREFERRED_SIZE, 134, GroupLayout.PREFERRED_SIZE))))
 		);
 		gl_panelDonHang.setVerticalGroup(
 			gl_panelDonHang.createParallelGroup(Alignment.LEADING)
@@ -439,24 +449,22 @@ public class DatHangForm extends JPanel {
 								.addComponent(lblHnhThcThanh, GroupLayout.PREFERRED_SIZE, 25, GroupLayout.PREFERRED_SIZE)
 								.addGroup(gl_panelDonHang.createSequentialGroup()
 									.addGap(1)
-									.addComponent(cmbHinhThucThanhToan, GroupLayout.PREFERRED_SIZE, 25, GroupLayout.PREFERRED_SIZE)))
-							.addGap(41)
-							.addGroup(gl_panelDonHang.createParallelGroup(Alignment.TRAILING)
-								.addGroup(gl_panelDonHang.createSequentialGroup()
-									.addComponent(lblGhiCh, GroupLayout.PREFERRED_SIZE, 25, GroupLayout.PREFERRED_SIZE)
-									.addGap(60))
-								.addGroup(gl_panelDonHang.createSequentialGroup()
-									.addComponent(textAreaGhiChu, GroupLayout.PREFERRED_SIZE, 72, GroupLayout.PREFERRED_SIZE)
-									.addGap(18)))
-							.addGroup(gl_panelDonHang.createParallelGroup(Alignment.LEADING)
-								.addGroup(gl_panelDonHang.createSequentialGroup()
-									.addGap(3)
-									.addComponent(btnXuatHoaDon, GroupLayout.PREFERRED_SIZE, 33, GroupLayout.PREFERRED_SIZE))
-								.addComponent(btLamMoiHD, GroupLayout.PREFERRED_SIZE, 38, GroupLayout.PREFERRED_SIZE)))
+									.addComponent(cmbHinhThucThanhToan, GroupLayout.PREFERRED_SIZE, 25, GroupLayout.PREFERRED_SIZE))))
 						.addGroup(gl_panelDonHang.createSequentialGroup()
 							.addContainerGap()
 							.addComponent(panelDonHang_1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)))
-					.addContainerGap(16, Short.MAX_VALUE))
+					.addGroup(gl_panelDonHang.createParallelGroup(Alignment.LEADING)
+						.addGroup(gl_panelDonHang.createSequentialGroup()
+							.addGap(41)
+							.addComponent(lblGhiCh, GroupLayout.PREFERRED_SIZE, 25, GroupLayout.PREFERRED_SIZE))
+						.addGroup(gl_panelDonHang.createSequentialGroup()
+							.addGap(29)
+							.addComponent(textAreaGhiChu, GroupLayout.PREFERRED_SIZE, 72, GroupLayout.PREFERRED_SIZE)))
+					.addGap(12)
+					.addGroup(gl_panelDonHang.createParallelGroup(Alignment.BASELINE)
+						.addComponent(btnXuatHoaDon, GroupLayout.PREFERRED_SIZE, 33, GroupLayout.PREFERRED_SIZE)
+						.addComponent(btLamMoiHD, GroupLayout.PREFERRED_SIZE, 38, GroupLayout.PREFERRED_SIZE))
+					.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
 		);
 		panelDonHang.setLayout(gl_panelDonHang);
 
@@ -611,159 +619,6 @@ public class DatHangForm extends JPanel {
 		panelGioHang.setLayout(gl_panelGioHang);
 		panel.setLayout(gl_panel);
 		setLayout(groupLayout);
-
-		// xử lý sự kiện thya đổi khách hàng
-		btThayDoi.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-
-				JFrame fr = new JFrame();
-				fr.setVisible(true);
-				// fr.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-				fr.setSize(600, 400);
-				fr.setLocationRelativeTo(null);
-
-				JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.TOP);
-				tabbedPane.setBounds(10, 11, 564, 339);
-				fr.getContentPane().add(tabbedPane);
-
-				JPanel panelDS = new JPanel();
-				tabbedPane.addTab("Danh sách khách hàng", null, panelDS, null);
-				panelDS.setLayout(null);
-
-				JPanel panelThemKH = new JPanel();
-				tabbedPane.addTab("Thêm khách hàng", null, panelThemKH, null);
-				panelThemKH.setLayout(null);
-
-				JLabel lblNewLabel = new JLabel("Mã khách hàng:");
-				lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 12));
-				lblNewLabel.setBounds(27, 11, 139, 33);
-				panelThemKH.add(lblNewLabel);
-
-				JLabel lblNewLabel_1 = new JLabel("Tên khách hàng:");
-				lblNewLabel_1.setFont(new Font("Tahoma", Font.BOLD, 12));
-				lblNewLabel_1.setBounds(27, 58, 139, 33);
-				panelThemKH.add(lblNewLabel_1);
-
-				JLabel lblNewLabel_3 = new JLabel("Giới tính:");
-				lblNewLabel_3.setFont(new Font("Tahoma", Font.BOLD, 12));
-				lblNewLabel_3.setBounds(27, 105, 139, 33);
-				panelThemKH.add(lblNewLabel_3);
-
-				rbNam = new JRadioButton("Nam", false);
-				rbNam.setFont(new Font("Tahoma", Font.BOLD, 12));
-				rbNam.setBackground(new Color(240, 240, 240));
-				rbNam.setBounds(157, 107, 57, 30);
-				panelThemKH.add(rbNam);
-
-				rbNu = new JRadioButton("Nữ");
-				rbNu.setFont(new Font("Tahoma", Font.BOLD, 12));
-				rbNu.setBackground(new Color(240, 240, 240));
-				rbNu.setBounds(224, 106, 57, 30);
-				panelThemKH.add(rbNu);
-				ButtonGroup group = new ButtonGroup();
-				group.add(rbNu);
-				group.add(rbNam);
-
-				txtTenKHThem = new JTextField();
-				txtTenKHThem.setColumns(10);
-				txtTenKHThem.setBounds(157, 67, 212, 25);
-				panelThemKH.add(txtTenKHThem);
-
-				txtMaKHThem = new JTextField();
-				txtMaKHThem.setColumns(10);
-				txtMaKHThem.setBounds(157, 20, 212, 25);
-				panelThemKH.add(txtMaKHThem);
-
-				JLabel lblNewLabel_4_2 = new JLabel("Email:");
-				lblNewLabel_4_2.setFont(new Font("Tahoma", Font.BOLD, 12));
-				lblNewLabel_4_2.setBounds(27, 144, 139, 33);
-				panelThemKH.add(lblNewLabel_4_2);
-
-				txtEmail = new JTextField();
-				txtEmail.setColumns(10);
-				txtEmail.setBounds(157, 149, 212, 25);
-				panelThemKH.add(txtEmail);
-
-				JLabel lblNewLabel_4_1 = new JLabel("Địa chỉ:");
-				lblNewLabel_4_1.setFont(new Font("Tahoma", Font.BOLD, 12));
-				lblNewLabel_4_1.setBounds(27, 188, 139, 33);
-				panelThemKH.add(lblNewLabel_4_1);
-
-				txtDiaChi = new JTextArea();
-				txtDiaChi.setBounds(159, 188, 210, 65);
-				panelThemKH.add(txtDiaChi);
-
-				JLabel lblNewLabel_2 = new JLabel("Số điện thoại:");
-				lblNewLabel_2.setFont(new Font("Tahoma", Font.BOLD, 12));
-				lblNewLabel_2.setBounds(307, 105, 99, 33);
-				panelThemKH.add(lblNewLabel_2);
-
-				txtSoDienThoai = new JTextField();
-				txtSoDienThoai.setColumns(10);
-				txtSoDienThoai.setBounds(395, 110, 154, 25);
-				panelThemKH.add(txtSoDienThoai);
-
-				btThem = new JButton("Thêm");
-				btThem.setFont(new Font("Tahoma", Font.BOLD, 11));
-				btThem.setBounds(227, 277, 89, 23);
-				panelThemKH.add(btThem);
-
-				String[] headerKH = { "Mã KH", "Tên KH", "Giới tính", "Địa chỉ", "SDT", "Email" };
-				modelKH = new DefaultTableModel(headerKH, 0);
-				tableKH = new JTable(modelKH);
-				tableKH.setBorder(new LineBorder(new Color(0, 0, 0)));
-				JScrollPane scpKH = new JScrollPane(tableKH, JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED,
-						JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
-				scpKH.setBounds(10, 11, 539, 259);
-				panelDS.add(scpKH);
-
-				btChon = new JButton("Chọn");
-				btChon.setFont(new Font("Tahoma", Font.BOLD, 11));
-				btChon.addActionListener(new ActionListener() {
-					public void actionPerformed(ActionEvent e) {
-					}
-				});
-				btChon.setBounds(234, 277, 89, 23);
-				panelDS.add(btChon);
-// thiết lập dữ liệu cho Jframe Khach hàng
-				try {
-					khachHang = new KhachHang_DAO();
-					for (KhachHang kh : khachHang.getAllKhachHang()) {
-						Object[] rowData = { kh.getMaKH(), kh.getTenKH(), kh.getGioiTinh(), kh.getDiaChi(), kh.getSDT(),
-								kh.getEmail() };
-						modelKH.addRow(rowData);
-					}
-				} catch (Exception eKH) {
-					// TODO: handle exception
-					eKH.printStackTrace();
-				}
-				btThem.addActionListener(new ActionListener() {
-
-					@Override
-					public void actionPerformed(ActionEvent e) {
-//						themKH();
-
-					}
-
-				});
-				btChon.addActionListener(new ActionListener() {
-
-					@Override
-					public void actionPerformed(ActionEvent e) {
-
-						int selectedRowKH = tableKH.getSelectedRow();
-						if (selectedRowKH >= 0) {
-							txtMaKH.setText(tableKH.getValueAt(selectedRowKH, 0).toString());
-							txtTenKH.setText(tableKH.getValueAt(selectedRowKH, 1).toString());
-
-						}
-
-					}
-				});
-
-			}
-		});
 	}
 
 	private void initComponent() {

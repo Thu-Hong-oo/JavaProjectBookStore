@@ -188,7 +188,6 @@ public class Main extends javax.swing.JFrame {
 	private void initDefaults() {
 
 		try {
-			// here you can put the selected theme class name in JTattoo
 			// UIManager.setLookAndFeel("com.jtattoo.plaf.luna.LunaLookAndFeel");
 			for (javax.swing.UIManager.LookAndFeelInfo infor : javax.swing.UIManager.getInstalledLookAndFeels()) {
 				if ("Windows Classic".equals(infor.getName())) {
@@ -213,6 +212,8 @@ public class Main extends javax.swing.JFrame {
 		defaults.put("Table.background", Color.WHITE); // Đặt màu nền của bảng
 		defaults.put("Viewport.background", Color.WHITE); // Đặt màu nền cho JViewport của JScrollPane
 		defaults.put("Button.background", new Color(57, 73, 98));
+		defaults.put("Panel.background", Color.WHITE); 
+		defaults.put("TabbedPane.background", Color.WHITE); 
 		// set font all component
 		defaults.put("Button.font", new Font("Tahoma", Font.BOLD, 13));
 		defaults.put("Label.font", new Font("Tahoma", Font.BOLD, 13));
@@ -221,8 +222,7 @@ public class Main extends javax.swing.JFrame {
 		defaults.put("TableHeader.foreground", Color.WHITE); // Đặt màu chữ header của bảng
 		defaults.put("Button.foreground", Color.WHITE);
 		defaults.put("TabbedPane.font", new Font("Tahoma", Font.BOLD, 15));
-		defaults.put("TabbedPane.foreground", Color.black);
-		defaults.put("TabbedPane.FocusPainted", false);
+		defaults.put("TabbedPane.foreground", new Color(57, 73, 98));
 		defaults.put("Button.select", new Color(54, 40, 69));
 
 	}
