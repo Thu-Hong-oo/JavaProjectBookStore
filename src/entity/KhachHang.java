@@ -7,9 +7,9 @@ public class KhachHang {
 	private String diaChi;
 	private String SDT;
 	private String email;
-	
-	
-	public KhachHang(String maKH, String tenKH, String gioiTinh, String diaChi, String sDT, String email) {
+	private String ngaySinh;
+	public KhachHang(String maKH, String tenKH, String gioiTinh, String diaChi, String sDT, String email,
+			String ngaySinh) {
 		super();
 		this.maKH = maKH;
 		this.tenKH = tenKH;
@@ -17,16 +17,8 @@ public class KhachHang {
 		this.diaChi = diaChi;
 		SDT = sDT;
 		this.email = email;
+		this.ngaySinh = ngaySinh;
 	}
-
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
 	public String getMaKH() {
 		return maKH;
 	}
@@ -45,18 +37,33 @@ public class KhachHang {
 	public void setGioiTinh(String gioiTinh) {
 		this.gioiTinh = gioiTinh;
 	}
-	public String getSDT() {
-		return SDT;
-	}
-	public void setSDT(String sDT) {
-		SDT = sDT;
-	}
 	public String getDiaChi() {
 		return diaChi;
 	}
 	public void setDiaChi(String diaChi) {
 		this.diaChi = diaChi;
 	}
+	public String getSDT() {
+		return SDT;
+	}
+	public void setSDT(String sDT) {
+		SDT = sDT;
+	}
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
+	public String getNgaySinh() {
+		return ngaySinh;
+	}
+	public void setNgaySinh(String ngaySinh) {
+		this.ngaySinh = ngaySinh;
+	}
+	
+	
+	
 	
 	
 	
