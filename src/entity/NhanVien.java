@@ -4,124 +4,91 @@ import java.sql.Date;
 
 public class NhanVien {
 	private String maNhanVien;
-	private String hoten;
-	private String diaChi;
-	private String dienThoai;
-	private String email;
+	private String tenNhanVien;
 	private Date ngaySinh;
 	private String gioiTinh;
-	private long luong;
+	private String soDienThoai;
+	private String email;
+	private String diaChi;
 	private String chucVu;
-	
-	
+	private String trangThaiLamViec;
+	private String trinhDo;
 	public NhanVien() {
 		super();
 	}
-
-
-	public NhanVien(String maNhanVien, String hoten, String diaChi, String dienThoai, String email, Date ngaySinh,
-			String gioiTinh, long luong, String chucVu) {
+	public NhanVien(String maNhanVien, String tenNhanVien, Date ngaySinh, String gioiTinh, String soDienThoai,
+			String email, String diaChi, String chucVu, String trangThaiLamViec, String trinhDo) {
 		super();
 		this.maNhanVien = maNhanVien;
-		this.hoten = hoten;
-		this.diaChi = diaChi;
-		this.dienThoai = dienThoai;
-		this.email = email;
+		this.tenNhanVien = tenNhanVien;
 		this.ngaySinh = ngaySinh;
 		this.gioiTinh = gioiTinh;
-		this.luong = luong;
+		this.soDienThoai = soDienThoai;
+		this.email = email;
+		this.diaChi = diaChi;
 		this.chucVu = chucVu;
+		this.trangThaiLamViec = trangThaiLamViec;
+		this.trinhDo = trinhDo;
 	}
-
-
 	public String getMaNhanVien() {
 		return maNhanVien;
 	}
-
-
 	public void setMaNhanVien(String maNhanVien) {
 		this.maNhanVien = maNhanVien;
 	}
-
-
-	public String getHoten() {
-		return hoten;
+	public String getTenNhanVien() {
+		return tenNhanVien;
 	}
-
-
-	public void setHoten(String hoten) {
-		this.hoten = hoten;
+	public void setTenNhanVien(String tenNhanVien) {
+		this.tenNhanVien = tenNhanVien;
 	}
-
-
-	public String getDiaChi() {
-		return diaChi;
-	}
-
-
-	public void setDiaChi(String diaChi) {
-		this.diaChi = diaChi;
-	}
-
-
-	public String getDienThoai() {
-		return dienThoai;
-	}
-
-
-	public void setDienThoai(String dienThoai) {
-		this.dienThoai = dienThoai;
-	}
-
-
-	public String getEmail() {
-		return email;
-	}
-
-
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
-
 	public Date getNgaySinh() {
 		return ngaySinh;
 	}
-
-
 	public void setNgaySinh(Date ngaySinh) {
 		this.ngaySinh = ngaySinh;
 	}
-
-
 	public String getGioiTinh() {
 		return gioiTinh;
 	}
-
-
 	public void setGioiTinh(String gioiTinh) {
 		this.gioiTinh = gioiTinh;
 	}
-
-
-	public long getLuong() {
-		return luong;
+	public String getSoDienThoai() {
+		return soDienThoai;
 	}
-
-
-	public void setLuong(long luong) {
-		this.luong = luong;
+	public void setSoDienThoai(String soDienThoai) {
+		this.soDienThoai = soDienThoai;
 	}
-
-
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
+	public String getDiaChi() {
+		return diaChi;
+	}
+	public void setDiaChi(String diaChi) {
+		this.diaChi = diaChi;
+	}
 	public String getChucVu() {
 		return chucVu;
 	}
-
-
 	public void setChucVu(String chucVu) {
 		this.chucVu = chucVu;
 	}
+	public String getTrangThaiLamViec() {
+		return trangThaiLamViec;
+	}
+	public void setTrangThaiLamViec(String trangThaiLamViec) {
+		this.trangThaiLamViec = trangThaiLamViec;
+	}
+	public String getTrinhDo() {
+		return trinhDo;
+	}
+	public void setTrinhDo(String trinhDo) {
+		this.trinhDo = trinhDo;
+	}
 	
-
 }

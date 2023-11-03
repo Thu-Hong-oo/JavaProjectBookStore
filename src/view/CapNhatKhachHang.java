@@ -35,9 +35,15 @@ import java.awt.SystemColor;
 import javax.swing.UIManager;
 
 import com.toedter.calendar.JDateChooser;
+
+import dao.KhachHang_DAO;
+import dao.NhanVien_DAO;
+
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.LayoutStyle.ComponentPlacement;
+import entity.KhachHang;
+import entity.NhanVien;
 
 public class CapNhatKhachHang extends JPanel{
 	/**
@@ -48,14 +54,13 @@ public class CapNhatKhachHang extends JPanel{
 	private JTextField txtTenKH;
 	private JTextField txtSDT;
 	private JTextField txtEmail;
-	private JTextField textField_4;
 	private JTable table;
 	private DefaultTableModel model;
-	private JButton btnNewButton_1, btnNewButton_1_1, btnNewButton_1_2, btnNewButton_1_1_1;
-	private JRadioButton rbNam, rbNu;
-	private JLabel lblNewLabel_7;
-	private JTextArea C;
-	private JDateChooser dateChooserNgaySinh;
+	private JButton btnThem, btnSua, btnLamMoi, btnXoa;
+	private JRadioButton rdoNam, rdoNu;
+	private JTextArea txtDiaChi;
+	private JDateChooser dcsDate;
+	private KhachHang_DAO khachHang;
 
 			public CapNhatKhachHang() {
 				setSize(1100, 610);
@@ -101,21 +106,21 @@ public class CapNhatKhachHang extends JPanel{
 				lblNewLabel_3.setBounds(10, 145, 139, 33);
 				panel.add(lblNewLabel_3);
 
-				rbNam = new JRadioButton("Nam", false);
-				rbNam.setBackground(SystemColor.controlHighlight);
-				rbNam.setFont(new Font("Tahoma", Font.BOLD, 12));
-				rbNam.setBounds(140, 147, 140, 30);
-				panel.add(rbNam);
+				rdoNam = new JRadioButton("Nam", false);
+				rdoNam.setBackground(SystemColor.controlHighlight);
+				rdoNam.setFont(new Font("Tahoma", Font.BOLD, 12));
+				rdoNam.setBounds(140, 147, 140, 30);
+				panel.add(rdoNam);
 
-				rbNu = new JRadioButton("Nữ");
-				rbNu.setBackground(SystemColor.controlHighlight);
-				rbNu.setFont(new Font("Tahoma", Font.BOLD, 12));
-				rbNu.setBounds(282, 148, 140, 30);
-				panel.add(rbNu);
+				rdoNu = new JRadioButton("Nữ");
+				rdoNu.setBackground(SystemColor.controlHighlight);
+				rdoNu.setFont(new Font("Tahoma", Font.BOLD, 12));
+				rdoNu.setBounds(282, 148, 140, 30);
+				panel.add(rdoNu);
 
 				ButtonGroup btg = new ButtonGroup();
-				btg.add(rbNu);
-				btg.add(rbNam);
+				btg.add(rdoNu);
+				btg.add(rdoNam);
 
 				JLabel lblNewLabel_4 = new JLabel("Email:");
 				lblNewLabel_4.setFont(new Font("Tahoma", Font.BOLD, 12));
@@ -131,8 +136,11 @@ public class CapNhatKhachHang extends JPanel{
 				scrollPane.setBounds(517, 167, 272, 89);
 				panel.add(scrollPane);
 				
-								C = new JTextArea();
-								scrollPane.setViewportView(C);
+								txtDiaChi = new JTextArea();
+								txtDiaChi.setLineWrap(true);
+								txtDiaChi.setWrapStyleWord(true);
+								scrollPane.setViewportView(txtDiaChi);
+								
 
 				JPanel panel_1 = new JPanel();
 				panel_1.setBackground(SystemColor.controlHighlight);
@@ -140,45 +148,45 @@ public class CapNhatKhachHang extends JPanel{
 				panel.add(panel_1);
 				panel_1.setLayout(null);
 
-				btnNewButton_1 = new JButton("Thêm");
-				btnNewButton_1.setIcon(new ImageIcon(CapNhatKhachHang.class.getResource("/icon/add.png")));
+				btnThem = new JButton("Thêm");
+				btnThem.setIcon(new ImageIcon(CapNhatKhachHang.class.getResource("/icon/add.png")));
 	
 				
-				btnNewButton_1.setFont(new Font("Tahoma", Font.BOLD, 11));
-				btnNewButton_1.setBounds(10, 11, 120, 40);
-				panel_1.add(btnNewButton_1);
+				btnThem.setFont(new Font("Tahoma", Font.BOLD, 11));
+				btnThem.setBounds(10, 11, 120, 40);
+				panel_1.add(btnThem);
 
-				btnNewButton_1_1 = new JButton("Sửa");
-				btnNewButton_1_1.setIcon(new ImageIcon(CapNhatKhachHang.class.getResource("/icon/edit.png")));
+				btnSua = new JButton("Sửa");
+				btnSua.setIcon(new ImageIcon(CapNhatKhachHang.class.getResource("/icon/edit.png")));
 	
 		
-				btnNewButton_1_1.addActionListener(new ActionListener() {
+				btnSua.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
 					}
 				});
-				btnNewButton_1_1.setFont(new Font("Tahoma", Font.BOLD, 11));
-				btnNewButton_1_1.setBounds(10, 62, 120, 40);
-				panel_1.add(btnNewButton_1_1);
+				btnSua.setFont(new Font("Tahoma", Font.BOLD, 11));
+				btnSua.setBounds(10, 62, 120, 40);
+				panel_1.add(btnSua);
 
-				btnNewButton_1_2 = new JButton("Làm mới");
-				btnNewButton_1_2.setIcon(new ImageIcon(CapNhatKhachHang.class.getResource("/icon/refresh.png")));
+				btnLamMoi = new JButton("Làm mới");
+				btnLamMoi.setIcon(new ImageIcon(CapNhatKhachHang.class.getResource("/icon/refresh.png")));
 				
-				btnNewButton_1_2.addActionListener(new ActionListener() {
+				btnLamMoi.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
 					}
 				});
-				btnNewButton_1_2.setFont(new Font("Tahoma", Font.BOLD, 11));
-				btnNewButton_1_2.setBounds(10, 171, 120, 40);
-				panel_1.add(btnNewButton_1_2);
+				btnLamMoi.setFont(new Font("Tahoma", Font.BOLD, 11));
+				btnLamMoi.setBounds(10, 171, 120, 40);
+				panel_1.add(btnLamMoi);
 
-				btnNewButton_1_1_1 = new JButton("Xóa");
-				btnNewButton_1_1_1.setIcon(new ImageIcon(CapNhatKhachHang.class.getResource("/icon/delete.png")));
-				btnNewButton_1_1_1.setFont(new Font("Tahoma", Font.BOLD, 11));
+				btnXoa = new JButton("Xóa");
+				btnXoa.setIcon(new ImageIcon(CapNhatKhachHang.class.getResource("/icon/delete.png")));
+				btnXoa.setFont(new Font("Tahoma", Font.BOLD, 11));
 	
-				btnNewButton_1_1_1.setBounds(10, 120, 120, 40);
-				panel_1.add(btnNewButton_1_1_1);
+				btnXoa.setBounds(10, 120, 120, 40);
+				panel_1.add(btnXoa);
 
-				lblNewLabel_7 = new JLabel("");
+				JLabel lblNewLabel_7 = new JLabel("");
 				lblNewLabel_7.setForeground(Color.RED);
 				lblNewLabel_7.setFont(new Font("Tahoma", Font.PLAIN, 14));
 				lblNewLabel_7.setBounds(191, 243, 363, 14);
@@ -189,13 +197,13 @@ public class CapNhatKhachHang extends JPanel{
 				lblNewLabel_5.setBounds(10, 202, 71, 25);
 				panel.add(lblNewLabel_5);
 				
-				dateChooserNgaySinh = new JDateChooser();
-				dateChooserNgaySinh.setBounds(737, 20, 191, 26);
-				panel_1.add(dateChooserNgaySinh);
+				dcsDate = new JDateChooser();
+				dcsDate.setBounds(737, 20, 191, 26);
+				panel_1.add(dcsDate);
 				
-				JDateChooser dateChooser = new JDateChooser();
-				dateChooser.setBounds(140, 202, 212, 25);
-				panel.add(dateChooser);
+				JDateChooser dcsDate = new JDateChooser();
+				dcsDate.setBounds(140, 202, 212, 25);
+				panel.add(dcsDate);
 				
 								JLabel lblNewLabel_4_1 = new JLabel("Địa chỉ:");
 								lblNewLabel_4_1.setBounds(432, 163, 270, 15);
@@ -236,8 +244,23 @@ public class CapNhatKhachHang extends JPanel{
 							.addContainerGap())
 				);
 				setLayout(groupLayout);
-			}
+			
+			
+			// lấy dl từ database
+			try {
+				khachHang = new KhachHang_DAO();
+				for (KhachHang kh : khachHang.getAllKhachHang()) {
+					Object[] rowKh = {kh.getmaKhachHang(),kh.gettenKhachHang(),kh.getNgaySinh(),kh.getGioiTinh(),kh.getSoDienThoai(),
+							kh.getEmail(), kh.getDiaChi()};
+					model.addRow(rowKh);
+				}
+			} catch (Exception e) {
+				// TODO: handle exception
+				e.printStackTrace();
 
+			}
+			
+}
 			
 		}
 

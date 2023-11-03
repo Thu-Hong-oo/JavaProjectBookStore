@@ -18,7 +18,7 @@ import menu.MenuEvent;
 import view.BanHangForm;
 import view.BanHangForm;
 import view.CapNhatKhachHang;
-import view.CapNhatNVForm;
+import view.CapNhatNhanVienForm;
 import view.CapNhatSanPhamForm;
 import view.DatHangForm;
 import view.GioiThieuForm;
@@ -69,7 +69,7 @@ public class Main extends javax.swing.JFrame {
 					else if (subIndex == 2)
 						showForm(new DatHangForm());
 					else if (subIndex == 3)
-						showForm(new CapNhatKhachHang());
+						showForm(new CapNhatNhanVienForm());
 					else if (subIndex == 4)
 						showForm(new TimKiemNhanVienForm());
 					else if (subIndex == 5)
