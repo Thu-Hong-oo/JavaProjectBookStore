@@ -42,6 +42,7 @@ import java.util.Calendar;
 import java.util.Date;
 
 import javax.swing.ImageIcon;
+import javax.swing.JPasswordField;
 
 public class CapNhatNhanVienForm extends JPanel implements ActionListener, MouseListener {
 
@@ -62,6 +63,10 @@ public class CapNhatNhanVienForm extends JPanel implements ActionListener, Mouse
 	private final ButtonGroup buttonGroup_1 = new ButtonGroup();
 	private final ButtonGroup buttonGroup_2 = new ButtonGroup();
 	private JTable tblAccount;
+	private JTextField txtMaNhanVien;
+	private JTextField txtUser;
+	private JButton btnThemTK,btnSuaTK,btnLamMoiTK,btnXoa;
+	private JPasswordField pwPass;
 
 	/**
 	 * Create the panel.
@@ -265,29 +270,54 @@ public class CapNhatNhanVienForm extends JPanel implements ActionListener, Mouse
 		scpTaiKhoan.setBounds(24, 20, 547, 173);
 		pnlaccount.add(scpTaiKhoan);
 		
-		JButton btnThemTK = new JButton("Thêm");
+		btnThemTK = new JButton("Thêm");
 		btnThemTK.setFont(new Font("Tahoma", Font.BOLD, 12));
 		btnThemTK.setBounds(962, 8, 122, 39);
 		pnlaccount.add(btnThemTK);
 		
-		JButton btnSuaTK = new JButton("Sửa");
-		btnSuaTK.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
+		btnSuaTK = new JButton("Sửa");
 		btnSuaTK.setFont(new Font("Tahoma", Font.BOLD, 12));
 		btnSuaTK.setBounds(962, 57, 122, 39);
 		pnlaccount.add(btnSuaTK);
 		
-		JButton btnLamMoiTK = new JButton("Làm Mới");
+		btnLamMoiTK = new JButton("Làm Mới");
 		btnLamMoiTK.setFont(new Font("Tahoma", Font.BOLD, 12));
 		btnLamMoiTK.setBounds(962, 106, 122, 39);
 		pnlaccount.add(btnLamMoiTK);
 		
-		JButton btnXoa = new JButton("Xóa");
+		 btnXoa = new JButton("Xóa");
 		btnXoa.setFont(new Font("Tahoma", Font.BOLD, 11));
 		btnXoa.setBounds(962, 165, 122, 39);
 		pnlaccount.add(btnXoa);
+		
+		JLabel lblMa = new JLabel("Mã Nhân Viên:");
+		lblMa.setFont(new Font("Tahoma", Font.BOLD, 12));
+		lblMa.setBounds(599, 34, 97, 13);
+		pnlaccount.add(lblMa);
+		
+		txtMaNhanVien = new JTextField();
+		txtMaNhanVien.setBounds(710, 29, 201, 26);
+		pnlaccount.add(txtMaNhanVien);
+		txtMaNhanVien.setColumns(10);
+		
+		JLabel lblNewLabel = new JLabel("Tên Đăng Nhập:");
+		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 12));
+		lblNewLabel.setBounds(593, 96, 103, 13);
+		pnlaccount.add(lblNewLabel);
+		
+		txtUser = new JTextField();
+		txtUser.setBounds(710, 91, 201, 26);
+		pnlaccount.add(txtUser);
+		txtUser.setColumns(10);
+		
+		JLabel lblNewLabel_2 = new JLabel("Mật khẩu:");
+		lblNewLabel_2.setFont(new Font("Tahoma", Font.BOLD, 12));
+		lblNewLabel_2.setBounds(601, 144, 72, 13);
+		pnlaccount.add(lblNewLabel_2);
+		
+		pwPass = new JPasswordField();
+		pwPass.setBounds(710, 142, 201, 26);
+		pnlaccount.add(pwPass);
 		panel.add(lblThngTinNhn);
 		panel.add(panel_1);
 		panel_1.setLayout(null);
