@@ -24,91 +24,56 @@ public class NhanVien_DAO {
 			Statement statement = con.getConnection().createStatement();
 			ResultSet rs = statement.executeQuery(sql);
 			while (rs.next()) {
-				dsNhanVien.add(new NhanVien(rs.getString("MaNV"), rs.getString("HoTen"), rs.getString("DiaChi"),
-						rs.getString("DienThoai"), rs.getString("Email"), rs.getDate("NgaySinh"),
-						rs.getString("GioiTinh"), rs.getLong("Luong"), rs.getString("ChucVu")));
+				dsNhanVien.add(new NhanVien(rs.getString("maNhanVien"), rs.getString("tenNhanVien"), rs.getDate("ngaySinh"),rs.getString("gioiTinh"),
+						rs.getString("soDienThoai"), rs.getString("email"), rs.getString("diaChi"),rs.getString("chucVu"),
+						rs.getString("trangThaiLamViec"), rs.getString("trinhDo")));
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 		return dsNhanVien;
 	}
-	public String getMaNVByHoTen(String hoTen) {
-		Connection con = ConnectDB.getInstance().getConnection();
-		PreparedStatement stmt = null;
-		String maNV = "";
-		String sql = "SELECT MaNV FROM NhanVien where HoTen = ?";
-		try {
-			stmt = con.prepareStatement(sql);
-			stmt.setString(1, hoTen);
-			ResultSet rs = stmt.executeQuery();
-			if (rs.next()) {
-				maNV = rs.getString("MaNV");
-			}
-		} catch (SQLException e) {
-			e.printStackTrace();
-		} finally {
-			close(stmt);
-		}
-
-		return maNV;
-	}
 	public void themNhanVien(NhanVien nv) {
 		Connection con = ConnectDB.getInstance().getConnection();
 		PreparedStatement stmt = null;
-		String sql = "INSERT INTO NhanVien(MaNV,HoTen, DiaChi, DienThoai, Email,NgaySinh, GioiTinh, Luong, ChucVu)  VALUES (?,?,?,?,?,?,?,?,?)";
+		String sql = "INSERT INTO NhanVien(maNhanVien,tenNhanVien, ngaySinh, gioiTinh, soDienThoai,email, diaChi, chucVu, trangThaiLamViec,trinhDo)  VALUES (?,?,?,?,?,?,?,?,?,?)";
 		try {
 			stmt = con.prepareStatement(sql);
 			stmt.setString(1, nv.getMaNhanVien());
-			stmt.setString(2, nv.getHoten());
-			stmt.setString(3, nv.getDiaChi());
-			stmt.setString(4, nv.getDienThoai());
-			stmt.setString(5, nv.getEmail());
-			stmt.setDate(6, (Date) nv.getNgaySinh());
-			stmt.setString(7, nv.getGioiTinh());
-			stmt.setLong(8, nv.getLuong());
-			stmt.setString(9, nv.getChucVu());
+			stmt.setString(2, nv.getTenNhanVien());
+			stmt.setDate(3, nv.getNgaySinh());
+			stmt.setString(4, nv.getGioiTinh());
+			stmt.setString(5, nv.getSoDienThoai());
+			stmt.setString(6, nv.getEmail());
+			stmt.setString(7, nv.getDiaChi());
+			stmt.setString(8, nv.getChucVu());
+			stmt.setString(9, nv.getTrangThaiLamViec());
+			stmt.setString(10, nv.getTrinhDo());
 			stmt.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
 			close(stmt);
 		}
-	}
-	public void xoaNhanVien(String maNV) {
-//		TaiKhoan_DAO taiKhoan = new TaiKhoan_DAO();
-		Connection con = ConnectDB.getInstance().getConnection();
-		PreparedStatement stmt = null;
-		String sql = "Delete from NhanVien where MaNV = ?";
-		try {
-//			taiKhoan.xoaTaiKhoan(maNV);
-			stmt = con.prepareStatement(sql);
-			stmt.setString(1, maNV);
-			stmt.executeUpdate();
-		} catch (SQLException e) {
-			e.printStackTrace();
-		} finally {
-			close(stmt);
-		}
-	}
-
+}
 	public void suaNhanVien(NhanVien nv) {
 		Connection con = ConnectDB.getInstance().getConnection();
 		PreparedStatement stmt = null;
-		String sql = "UPDATE NhanVien " + " set HoTen = ?, " + " DiaChi = ?, " + " DienThoai = ?, " + " Email = ?, "
-				+ " NgaySinh = ?, " + " GioiTinh = ?, " + " Luong = ?, " + "ChucVu = ? where MaNV = ?;";
+		String sql = "UPDATE NhanVien " + " set tenNhanVien = ?, " + " ngaySinh = ?, " + " gioiTinh = ?, " + " soDienThoai = ?, "
+				+ " email = ?, " + " diaChi = ?, " + " chucVu = ?, " + "trangThaiLamViec = ? ," + " trinhDo=? where maNhanVien = ?;";
 		try {
 			stmt = con.prepareStatement(sql);
 			// stmt.setString(1, nv.getMaNhanVien());
-			stmt.setString(1, nv.getHoten());
-			stmt.setString(2, nv.getDiaChi());
-			stmt.setString(3, nv.getDienThoai());
-			stmt.setString(4, nv.getEmail());
-			stmt.setDate(5, nv.getNgaySinh());
-			stmt.setString(6, nv.getGioiTinh());
-			stmt.setLong(7, nv.getLuong());
-			stmt.setString(8, nv.getChucVu());
-			stmt.setString(9, nv.getMaNhanVien());
+			stmt.setString(1, nv.getTenNhanVien());
+			stmt.setDate(2, nv.getNgaySinh());
+			stmt.setString(3, nv.getGioiTinh());
+			stmt.setString(4, nv.getSoDienThoai());
+			stmt.setString(5, nv.getEmail());
+			stmt.setString(6, nv.getDiaChi());
+			stmt.setString(7, nv.getChucVu());
+			stmt.setString(8, nv.getTrangThaiLamViec());
+			stmt.setString(9, nv.getTrinhDo());
+			stmt.setString(10, nv.getMaNhanVien());
 			stmt.executeUpdate();
 
 		} catch (SQLException e) {

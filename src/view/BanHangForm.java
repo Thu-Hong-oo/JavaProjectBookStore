@@ -140,8 +140,10 @@ public class BanHangForm extends JPanel {
 		pnlLapHoaDonNhanh.setBackground(Color.WHITE);
 		
 		JPanel panelDS = new JPanel();
-		panelDS.setBorder(new CompoundBorder(new LineBorder(new Color(128, 128, 128), 1, true),
-		
+		panelDS.setBorder(new CompoundBorder(new LineBorder(new Color(128, 128, 128), 1, true),
+
+		
+
 						new LineBorder(new Color(192, 192, 192), 2, true)));
 		panelDS.setBackground(Color.WHITE);
 		
@@ -268,7 +270,8 @@ public class BanHangForm extends JPanel {
 		panelDS.setLayout(gl_panelDS);
 		
 		JPanel panelGioHang = new JPanel();
-		panelGioHang.setBorder(new CompoundBorder(new LineBorder(new Color(128, 128, 128), 1, true),
+		panelGioHang.setBorder(new CompoundBorder(new LineBorder(new Color(128, 128, 128), 1, true),
+
 						new LineBorder(new Color(192, 192, 192), 2, true)));
 		panelGioHang.setBackground(Color.WHITE);
 		tblGioHang = new JTable(modelGioHang);
@@ -410,7 +413,9 @@ public class BanHangForm extends JPanel {
 		lbDonHang.setFont(new Font("Tahoma", Font.BOLD, 15));
 		
 		JPanel panelDonHang = new JPanel();
-		panelDonHang.setBorder(new CompoundBorder(new LineBorder(new Color(128, 128, 128), 1, true),
+		panelDonHang.setBorder(new CompoundBorder(new LineBorder(new Color(128, 128, 128), 1, true),
+
+
 								new LineBorder(new Color(192, 192, 192), 2, true)));
 		panelDonHang.setBackground(Color.WHITE);
 		
@@ -446,7 +451,9 @@ public class BanHangForm extends JPanel {
 		btLamMoiHD.setFont(new Font("SansSerif", Font.BOLD, 12));
 		
 		JPanel panelDonHang_1 = new JPanel();
-		panelDonHang_1.setBorder(new CompoundBorder(new LineBorder(new Color(128, 128, 128), 1, true),
+		panelDonHang_1.setBorder(new CompoundBorder(new LineBorder(new Color(128, 128, 128), 1, true),
+
+
 								new LineBorder(new Color(192, 192, 192), 2, true)));
 		panelDonHang_1.setBackground(Color.WHITE);
 		
