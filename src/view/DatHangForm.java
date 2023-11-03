@@ -268,7 +268,7 @@ public class DatHangForm extends JPanel {
 						}
 
 						// Thêm sản phẩm vào giỏ hàng
-						Object[] row = { selectedSanPham.getMaSanPham(), selectedSanPham.getGiaBan(), soLuongNhap,
+						Object[] row = { selectedSanPham.getMaSP(), selectedSanPham.getGiaBan(), soLuongNhap,
 								soLuongNhap * selectedSanPham.getGiaBan() };
 						modelGioHang.addRow(row);
 					}

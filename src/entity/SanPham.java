@@ -1,111 +1,124 @@
 package entity;
+
 public class SanPham {
-    private String maSanPham;
-    private String tenSanPham;
-    private String tacGia;
-    private String nhaCungCap;
-    private String loai;
-    private String moTa;
-    private byte[] hinhAnh;
-    private double giaNhap;
-    private double giaBan;
-    private int soLuong;
+	private String maSP;
+	private String tenSP;
+	private String tacGia;
+	private String maNCC;
+	private String loaiSanPham;
+	private String moTa;
+	private int soLuong;
+	private double giaNhap;
+	private double giaBan;
+	private String maKM;
+	private byte[] hinhAnh;
 
-    // Constructors
-    public SanPham() {
-    }
+	public SanPham() {
 
-    public SanPham(String maSanPham, String tenSanPham, String tacGia, String nhaCungCap, String loai, String moTa, byte[] hinhAnh, double giaNhap, double giaBan, int soLuong) {
-        this.maSanPham = maSanPham;
-        this.tenSanPham = tenSanPham;
-        this.tacGia = tacGia;
-        this.nhaCungCap = nhaCungCap;
-        this.loai = loai;
-        this.moTa = moTa;
-        this.hinhAnh = hinhAnh;
-        this.giaNhap = giaNhap;
-        this.giaBan = giaBan;
-        this.soLuong = soLuong;
-    }
+	}
 
-    // Getters and setters
-    public String getMaSanPham() {
-        return maSanPham;
-    }
+	public SanPham(String maSP, String tenSP, String tacGia, String maNCC, String loaiSanPham, String moTa, int soLuong,
+			double giaNhap, double giaBan, String maKM, byte[] hinhAnh) {
+		super();
+		this.maSP = maSP;
+		this.tenSP = tenSP;
+		this.tacGia = tacGia;
+		this.maNCC = maNCC;
+		this.loaiSanPham = loaiSanPham;
+		this.moTa = moTa;
+		this.soLuong = soLuong;
+		this.giaNhap = giaNhap;
+		this.giaBan = giaBan;
+		this.maKM = maKM;
+		this.hinhAnh = hinhAnh;
+	}
 
-    public void setMaSanPham(String maSanPham) {
-        this.maSanPham = maSanPham;
-    }
+	public String getMaSP() {
+		return maSP;
+	}
 
-    public String getTenSanPham() {
-        return tenSanPham;
-    }
+	public void setMaSP(String maSP) {
+		this.maSP = maSP;
+	}
 
-    public void setTenSanPham(String tenSanPham) {
-        this.tenSanPham = tenSanPham;
-    }
+	public String getTenSP() {
+		return tenSP;
+	}
 
-    public String getTacGia() {
-        return tacGia;
-    }
+	public void setTenSP(String tenSP) {
+		this.tenSP = tenSP;
+	}
 
-    public void setTacGia(String tacGia) {
-        this.tacGia = tacGia;
-    }
+	public String getTacGia() {
+		return tacGia;
+	}
 
-    public String getNhaCungCap() {
-        return nhaCungCap;
-    }
+	public void setTacGia(String tacGia) {
+		this.tacGia = tacGia;
+	}
 
-    public void setNhaCungCap(String nhaCungCap) {
-        this.nhaCungCap = nhaCungCap;
-    }
+	public String getMaNCC() {
+		return maNCC;
+	}
 
-    public String getLoai() {
-        return loai;
-    }
+	public void setMaNCC(String maNCC) {
+		this.maNCC = maNCC;
+	}
 
-    public void setLoai(String loai) {
-        this.loai = loai;
-    }
+	public String getLoaiSanPham() {
+		return loaiSanPham;
+	}
 
-    public String getMoTa() {
-        return moTa;
-    }
+	public void setLoaiSanPham(String loaiSanPham) {
+		this.loaiSanPham = loaiSanPham;
+	}
 
-    public void setMoTa(String moTa) {
-        this.moTa = moTa;
-    }
+	public String getMoTa() {
+		return moTa;
+	}
 
-    public byte[] getHinhAnh() {
-        return hinhAnh;
-    }
+	public void setMoTa(String moTa) {
+		this.moTa = moTa;
+	}
 
-    public void setHinhAnh(byte[] hinhAnh) {
-        this.hinhAnh = hinhAnh;
-    }
+	public int getSoLuong() {
+		return soLuong;
+	}
 
-    public double getGiaNhap() {
-        return giaNhap;
-    }
+	public void setSoLuong(int soLuong) {
+		this.soLuong = soLuong;
+	}
 
-    public void setGiaNhap(double giaNhap) {
-        this.giaNhap = giaNhap;
-    }
+	public double getGiaNhap() {
+		return giaNhap;
+	}
 
-    public double getGiaBan() {
-        return giaBan;
-    }
+	public void setGiaNhap(double giaNhap) {
+		this.giaNhap = giaNhap;
+	}
 
-    public void setGiaBan(double giaBan) {
-        this.giaBan = giaBan;
-    }
+	public double getGiaBan() {
+		return giaBan;
+	}
 
-    public int getSoLuong() {
-        return soLuong;
-    }
+	public void setGiaBan(double giaBan) {
+		this.giaBan = giaBan;
+	}
 
-    public void setSoLuong(int soLuong) {
-        this.soLuong = soLuong;
-    }
+	public String getMaKM() {
+		return maKM;
+	}
+
+	public void setMaKM(String maKM) {
+		this.maKM = maKM;
+	}
+
+	public byte[] getHinhAnh() {
+		return hinhAnh;
+	}
+
+	public void setHinhAnh(byte[] hinhAnh) {
+		this.hinhAnh = hinhAnh;
+	}
+
 }
