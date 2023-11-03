@@ -9,14 +9,11 @@ public class KhachHang {
 	private String gioiTinh;
 	private String soDienThoai;
 	private String email;
-<<<<<<< HEAD
 	private String diaChi;
 	public KhachHang() {
-=======
 	private String ngaySinh;
 	public KhachHang(String maKH, String tenKH, String gioiTinh, String diaChi, String sDT, String email,
 			String ngaySinh) {
->>>>>>> a8b28fd5b52401684a91b5b3b90e1f83d7d1bcfe
 		super();
 	}
 	public KhachHang(String maKhachHang, String tenKhachHang, Date ngaySinh, String gioiTinh, String soDienThoai, String email,
@@ -29,7 +26,6 @@ public class KhachHang {
 		this.soDienThoai = soDienThoai;
 		this.email = email;
 		this.diaChi = diaChi;
-<<<<<<< HEAD
 	}
 	public String getmaKhachHang() {
 		return maKhachHang;
@@ -39,14 +35,13 @@ public class KhachHang {
 	}
 	public String gettenKhachHang() {
 		return tenKhachHang;
-=======
+
 		SDT = sDT;
 		this.email = email;
 		this.ngaySinh = ngaySinh;
 	}
 	public String getMaKH() {
 		return maKH;
->>>>>>> a8b28fd5b52401684a91b5b3b90e1f83d7d1bcfe
 	}
 	public void settenKhachHang(String tenKhachHang) {
 		this.tenKhachHang = tenKhachHang;
@@ -63,7 +58,6 @@ public class KhachHang {
 	public void setGioiTinh(String gioiTinh) {
 		this.gioiTinh = gioiTinh;
 	}
-<<<<<<< HEAD
 	public String getSoDienThoai() {
 		return soDienThoai;
 	}
@@ -76,8 +70,6 @@ public class KhachHang {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-=======
->>>>>>> a8b28fd5b52401684a91b5b3b90e1f83d7d1bcfe
 	public String getDiaChi() {
 		return diaChi;
 	}
