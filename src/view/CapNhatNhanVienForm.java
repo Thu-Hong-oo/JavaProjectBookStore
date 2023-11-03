@@ -61,6 +61,7 @@ public class CapNhatNhanVienForm extends JPanel implements ActionListener, Mouse
 	private DefaultTableModel modelTaiKhoan;
 	private final ButtonGroup buttonGroup_1 = new ButtonGroup();
 	private final ButtonGroup buttonGroup_2 = new ButtonGroup();
+	private JTable tblAccount;
 
 	/**
 	 * Create the panel.
@@ -251,6 +252,42 @@ public class CapNhatNhanVienForm extends JPanel implements ActionListener, Mouse
 		add(panel);
 		panel.setLayout(null);
 		panel.add(tabbedPane);
+		
+		JPanel pnlaccount = new JPanel();
+		tabbedPane.addTab("New tab", null, pnlaccount, null);
+		pnlaccount.setLayout(null);
+		String[] headerTaiKhoan = { "Mã NV", "Tên đăng nhập", "Mật khẩu" };
+		modelTaiKhoan = new DefaultTableModel(headerTaiKhoan, 0);
+		tblAccount = new JTable(modelTaiKhoan);
+		tblAccount.setBorder(new LineBorder(new Color(0, 0, 0)));
+		JScrollPane scpTaiKhoan = new JScrollPane(tblAccount, JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED,
+				JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+		scpTaiKhoan.setBounds(24, 20, 547, 173);
+		pnlaccount.add(scpTaiKhoan);
+		
+		JButton btnThemTK = new JButton("Thêm");
+		btnThemTK.setFont(new Font("Tahoma", Font.BOLD, 12));
+		btnThemTK.setBounds(962, 8, 122, 39);
+		pnlaccount.add(btnThemTK);
+		
+		JButton btnSuaTK = new JButton("Sửa");
+		btnSuaTK.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		btnSuaTK.setFont(new Font("Tahoma", Font.BOLD, 12));
+		btnSuaTK.setBounds(962, 57, 122, 39);
+		pnlaccount.add(btnSuaTK);
+		
+		JButton btnLamMoiTK = new JButton("Làm Mới");
+		btnLamMoiTK.setFont(new Font("Tahoma", Font.BOLD, 12));
+		btnLamMoiTK.setBounds(962, 106, 122, 39);
+		pnlaccount.add(btnLamMoiTK);
+		
+		JButton btnXoa = new JButton("Xóa");
+		btnXoa.setFont(new Font("Tahoma", Font.BOLD, 11));
+		btnXoa.setBounds(962, 165, 122, 39);
+		pnlaccount.add(btnXoa);
 		panel.add(lblThngTinNhn);
 		panel.add(panel_1);
 		panel_1.setLayout(null);
