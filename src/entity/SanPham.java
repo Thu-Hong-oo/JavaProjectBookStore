@@ -4,32 +4,32 @@ public class SanPham {
 	private String maSP;
 	private String tenSP;
 	private String tacGia;
-	private String maNCC;
-	private String loaiSanPham;
+	private String tenNCC;
+	private String tenDM;
 	private String moTa;
 	private int soLuong;
 	private double giaNhap;
 	private double giaBan;
-	private String maKM;
+	private String tenKM;
 	private byte[] hinhAnh;
 
 	public SanPham() {
 
 	}
 
-	public SanPham(String maSP, String tenSP, String tacGia, String maNCC, String loaiSanPham, String moTa, int soLuong,
-			double giaNhap, double giaBan, String maKM, byte[] hinhAnh) {
+	public SanPham(String maSP, String tenSP, String tacGia, String tenNCC, String tenDM, String moTa, int soLuong,
+			double giaNhap, double giaBan, String tenKM, byte[] hinhAnh) {
 		super();
 		this.maSP = maSP;
 		this.tenSP = tenSP;
 		this.tacGia = tacGia;
-		this.maNCC = maNCC;
-		this.loaiSanPham = loaiSanPham;
+		this.tenNCC = tenNCC;
+		this.tenDM = tenDM;
 		this.moTa = moTa;
 		this.soLuong = soLuong;
 		this.giaNhap = giaNhap;
 		this.giaBan = giaBan;
-		this.maKM = maKM;
+		this.tenKM = tenKM;
 		this.hinhAnh = hinhAnh;
 	}
 
@@ -57,20 +57,20 @@ public class SanPham {
 		this.tacGia = tacGia;
 	}
 
-	public String getMaNCC() {
-		return maNCC;
+	public String gettenNCC() {
+		return tenNCC;
 	}
 
-	public void setMaNCC(String maNCC) {
-		this.maNCC = maNCC;
+	public void settenNCC(String tenNCC) {
+		this.tenNCC = tenNCC;
 	}
 
-	public String getLoaiSanPham() {
-		return loaiSanPham;
+	public String getTenDM() {
+		return tenDM;
 	}
 
-	public void setLoaiSanPham(String loaiSanPham) {
-		this.loaiSanPham = loaiSanPham;
+	public void setTenDM(String tenDM) {
+		this.tenDM = tenDM;
 	}
 
 	public String getMoTa() {
@@ -105,12 +105,12 @@ public class SanPham {
 		this.giaBan = giaBan;
 	}
 
-	public String getMaKM() {
-		return maKM;
+	public String getTenKM() {
+		return tenKM;
 	}
 
-	public void setMaKM(String maKM) {
-		this.maKM = maKM;
+	public void setTenKM(String tenKM) {
+		this.tenKM = tenKM;
 	}
 
 	public byte[] getHinhAnh() {

@@ -4,6 +4,23 @@ public class ThongKe {
 	private long doanhThu;
 	private int soHoaDon;
 	private int tongKhach;
+	private long doanhthu;
+	public long getDoanhthu() {
+		return doanhthu;
+	}
+
+	public void setDoanhthu(long doanhthu) {
+		this.doanhthu = doanhthu;
+	}
+
+	public ThongKe(long doanhThu, int soHoaDon, int tongKhach, long doanhthu2, String tenSPMuaNhieu) {
+		super();
+		this.doanhThu = doanhThu;
+		this.soHoaDon = soHoaDon;
+		this.tongKhach = tongKhach;
+		doanhthu = doanhthu2;
+		this.tenSPMuaNhieu = tenSPMuaNhieu;
+	}
 	private String tenSPMuaNhieu;
 	public ThongKe(long doanhThu, int soHoaDon, int tongKhach, String tenSPMuanNhieu) {
 		super();

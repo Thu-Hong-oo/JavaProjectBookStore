@@ -59,14 +59,11 @@ public class CapNhatNhanVienForm extends JPanel implements ActionListener, Mouse
 	private JButton btnTaoMoi, btnCpNht, btnLamMoi;
 	private NhanVien_DAO NhanVien;
 	private DefaultTableModel modelNhanVien;
-	private DefaultTableModel modelTaiKhoan;
-	private final ButtonGroup buttonGroup_1 = new ButtonGroup();
-	private final ButtonGroup buttonGroup_2 = new ButtonGroup();
-	private JTable tblAccount;
-	private JTextField txtMaNhanVien;
-	private JTextField txtUser;
-	private JButton btnThemTK,btnSuaTK,btnLamMoiTK,btnXoa;
-	private JPasswordField pwPass;
+	private final ButtonGroup btngrpGioiTinh = new ButtonGroup();
+	private final ButtonGroup btngrpTrangThai = new ButtonGroup();
+	private final ButtonGroup btngrpTrinhDo  = new ButtonGroup();
+	private JTextField txtTenDangNhap;
+	private JTextField txtMatKhau;
 
 	/**
 	 * Create the panel.
@@ -75,160 +72,135 @@ public class CapNhatNhanVienForm extends JPanel implements ActionListener, Mouse
 		setSize(1100, 650);
 
 		JPanel panel = new JPanel();
-		panel.setBounds(0, 0, 1577, 640);
 		panel.setBackground(Color.WHITE);
 
 		JPanel panel_1 = new JPanel();
-		panel_1.setBounds(10, 41, 1557, 274);
 		panel_1.setBackground(SystemColor.controlHighlight);
 		panel_1.setBorder(UIManager.getBorder("TitledBorder.border"));
 
 		JLabel lblNewLabel_1 = new JLabel("Mã NV:");
-		lblNewLabel_1.setBounds(84, 32, 46, 14);
 		lblNewLabel_1.setFont(new Font("Tahoma", Font.BOLD, 12));
 
 		JLabel lblNewLabel_1_1 = new JLabel("Họ Tên:");
-		lblNewLabel_1_1.setBounds(84, 61, 46, 14);
 		lblNewLabel_1_1.setFont(new Font("Tahoma", Font.BOLD, 12));
 
 		JLabel lblNewLabel_1_2 = new JLabel("Địa chỉ:");
-		lblNewLabel_1_2.setBounds(84, 90, 63, 14);
 		lblNewLabel_1_2.setFont(new Font("Tahoma", Font.BOLD, 12));
 
 		JLabel lblNewLabel_1_3 = new JLabel("Điện thoại:");
-		lblNewLabel_1_3.setBounds(84, 120, 77, 14);
 		lblNewLabel_1_3.setFont(new Font("Tahoma", Font.BOLD, 12));
 
 		JLabel lblNewLabel_1_4 = new JLabel("Email:");
-		lblNewLabel_1_4.setBounds(84, 151, 46, 14);
 		lblNewLabel_1_4.setFont(new Font("Tahoma", Font.BOLD, 12));
 
 		txtMa = new JTextField();
-		txtMa.setBounds(166, 27, 296, 26);
 		txtMa.setFont(new Font("Tahoma", Font.PLAIN, 11));
 		txtMa.setColumns(10);
 
 		txtTen = new JTextField();
-		txtTen.setBounds(166, 57, 296, 26);
 		txtTen.setColumns(10);
 
 		txtDiaChi = new JTextField();
-		txtDiaChi.setBounds(166, 87, 296, 26);
 		txtDiaChi.setFont(new Font("Tahoma", Font.PLAIN, 11));
 		txtDiaChi.setColumns(10);
 
 		txtEmail = new JTextField();
-		txtEmail.setBounds(166, 147, 296, 26);
 		txtEmail.setFont(new Font("Tahoma", Font.PLAIN, 11));
 		txtEmail.setColumns(10);
 
 		JLabel lblNewLabel_1_5 = new JLabel("Ngày sinh:");
-		lblNewLabel_1_5.setBounds(651, 32, 63, 14);
 		lblNewLabel_1_5.setFont(new Font("Tahoma", Font.BOLD, 12));
 
 		JLabel lblNewLabel_1_1_1 = new JLabel("Chức vụ:");
-		lblNewLabel_1_1_1.setBounds(651, 90, 63, 14);
 		lblNewLabel_1_1_1.setHorizontalAlignment(SwingConstants.LEFT);
 		lblNewLabel_1_1_1.setFont(new Font("Tahoma", Font.BOLD, 12));
 
 		btnLamMoi = new JButton("Làm mới");
-		btnLamMoi.setBounds(678, 216, 119, 39);
 		btnLamMoi.setIcon(new ImageIcon(CapNhatNhanVienForm.class.getResource("/icon/refresh.png")));
 		btnLamMoi.setFont(new Font("Tahoma", Font.BOLD, 11));
 
 		txtphone = new JTextField();
-		txtphone.setBounds(166, 116, 296, 26);
 		txtphone.setColumns(10);
 
 		JLabel lblNewLabel_1_3_1 = new JLabel("Giới tính:");
-		lblNewLabel_1_3_1.setBounds(651, 61, 63, 14);
 		lblNewLabel_1_3_1.setFont(new Font("Tahoma", Font.BOLD, 12));
 
 		rdoNam = new JRadioButton("Nam");
-		rdoNam.setBounds(734, 56, 77, 23);
-		buttonGroup_1.add(rdoNam);
+		btngrpGioiTinh.add(rdoNam);
 		rdoNam.setFont(new Font("Tahoma", Font.PLAIN, 12));
 		rdoNam.setBackground(SystemColor.controlHighlight);
 
 		rdoNu = new JRadioButton("Nữ");
-		rdoNu.setBounds(851, 56, 77, 23);
-		buttonGroup_1.add(rdoNu);
+		btngrpGioiTinh.add(rdoNu);
 		rdoNu.setFont(new Font("Tahoma", Font.PLAIN, 12));
 		rdoNu.setBackground(SystemColor.controlHighlight);
 
-		ButtonGroup buttonGroup = new ButtonGroup();
 
 		dcsDate = new JDateChooser();
-		dcsDate.setBounds(737, 20, 191, 26);
 
 		JLabel lblNewLabel_1_3_1_1 = new JLabel("Trạng thái:");
-		lblNewLabel_1_3_1_1.setBounds(651, 120, 77, 14);
 		lblNewLabel_1_3_1_1.setFont(new Font("Tahoma", Font.BOLD, 12));
 
 		rdoDangLam = new JRadioButton("Đang làm");
-		rdoDangLam.setBounds(734, 120, 77, 23);
-		buttonGroup_2.add(rdoDangLam);
+		btngrpTrangThai.add(rdoDangLam);
 		rdoDangLam.setFont(new Font("Tahoma", Font.PLAIN, 12));
 		rdoDangLam.setBackground(SystemColor.controlHighlight);
 
 		rdoDaNghi = new JRadioButton("Đã nghỉ");
-		rdoDaNghi.setBounds(851, 120, 77, 23);
-		buttonGroup_2.add(rdoDaNghi);
+		btngrpTrangThai.add(rdoDaNghi);
 		rdoDaNghi.setFont(new Font("Tahoma", Font.PLAIN, 12));
 		rdoDaNghi.setBackground(SystemColor.controlHighlight);
 
 		btnTaoMoi = new JButton("Tạo mới");
-		btnTaoMoi.setBounds(316, 215, 114, 41);
 		btnTaoMoi.setIcon(new ImageIcon(CapNhatNhanVienForm.class.getResource("/icon/add.png")));
 		btnTaoMoi.setFont(new Font("Tahoma", Font.BOLD, 11));
 
 		btnCpNht = new JButton("Cập nhật");
-		btnCpNht.setBounds(490, 215, 131, 41);
 		btnCpNht.setIcon(new ImageIcon(CapNhatNhanVienForm.class.getResource("/icon/edit.png")));
 		btnCpNht.setFont(new Font("Tahoma", Font.BOLD, 11));
 
 		cmbChucVu = new JComboBox();
-		cmbChucVu.setBounds(737, 87, 156, 26);
 		cmbChucVu.setFont(new Font("Tahoma", Font.PLAIN, 11));
-		cmbChucVu.setModel(new DefaultComboBoxModel(new String[] {"Nhân viên quản lý", "Nhân viên bán hàng", "Nhân viên tư vấn", "Bảo vệ", "Nhân viên vệ sinh"}));
-
+		cmbChucVu.setModel(new DefaultComboBoxModel(new String[] {"","Nhân viên quản lý", "Nhân viên bán hàng", "Nhân viên tư vấn", "Bảo vệ", "Nhân viên vệ sinh"}));
 		JLabel lblTrinhDo = new JLabel("Trình độ:");
-		lblTrinhDo.setBounds(651, 158, 63, 14);
 		lblTrinhDo.setFont(new Font("Tahoma", Font.BOLD, 12));
 
 		rdoDH = new JRadioButton("Đại học");
-		rdoDH.setBounds(734, 156, 103, 21);
-		buttonGroup.add(rdoDH);
+		btngrpTrinhDo.add(rdoDH);
 		rdoDH.setBackground(SystemColor.controlHighlight);
 		rdoDH.setFont(new Font("Tahoma", Font.PLAIN, 12));
 
 		rdoPT = new JRadioButton("Phổ thông");
-		rdoPT.setBounds(851, 156, 103, 21);
-		buttonGroup.add(rdoPT);
+		btngrpTrinhDo.add(rdoPT);
 		rdoPT.setBackground(SystemColor.controlHighlight);
 		rdoPT.setFont(new Font("Tahoma", Font.PLAIN, 12));
 
 		tabbedPane = new JTabbedPane(JTabbedPane.TOP);
-		tabbedPane.setBounds(10, 333, 1567, 255);
 		tabbedPane.setBackground(SystemColor.controlHighlight);
 		
 		JPanel panel_3 = new JPanel();
 		tabbedPane.addTab("DS Thông Tin", null, panel_3, null);
 		
 		String[] headerDangLamViec = { "Mã NV", "Họ tên", "Ngày sinh", "Giới tính", "SĐT", "Email", "Địa chỉ",
-				"Chức Vụ", "Trạng thái làm việc", "Trình Độ" };
+				"Chức Vụ", "Trạng thái làm việc", "Trình Độ", "Tên Đăng Nhập", "Mật khẩu" };
 		modelNhanVien = new DefaultTableModel(headerDangLamViec, 0);
-		panel_3.setLayout(null);
 		tblNhanVien = new JTable(modelNhanVien);
 		tblNhanVien.setFont(new Font("Tahoma", Font.PLAIN, 13));
 		tblNhanVien.setBorder(new LineBorder(new Color(0, 0, 0)));
 		JScrollPane scpThongTin = new JScrollPane(tblNhanVien, JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED,
 				JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
-		scpThongTin.setBounds(0, 0, 1067, 228);
-		panel_3.add(scpThongTin);
+		GroupLayout gl_panel_3 = new GroupLayout(panel_3);
+		gl_panel_3.setHorizontalGroup(
+			gl_panel_3.createParallelGroup(Alignment.LEADING)
+				.addComponent(scpThongTin, GroupLayout.PREFERRED_SIZE, 1178, GroupLayout.PREFERRED_SIZE)
+		);
+		gl_panel_3.setVerticalGroup(
+			gl_panel_3.createParallelGroup(Alignment.LEADING)
+				.addComponent(scpThongTin, GroupLayout.PREFERRED_SIZE, 228, GroupLayout.PREFERRED_SIZE)
+		);
+		panel_3.setLayout(gl_panel_3);
 
 		JLabel lblThngTinNhn = new JLabel("Thông tin nhân viên");
-		lblThngTinNhn.setBounds(20, 11, 159, 24);
 		lblThngTinNhn.setFont(new Font("Tahoma", Font.BOLD, 15));
 		
 
@@ -240,7 +212,7 @@ public class CapNhatNhanVienForm extends JPanel implements ActionListener, Mouse
 			for (NhanVien nv : NhanVien.getAllNhanVien()) {
 				Object[] rowNV = { nv.getMaNhanVien(), nv.getTenNhanVien(), nv.getNgaySinh(), nv.getGioiTinh(),
 						nv.getSoDienThoai(), nv.getEmail(), nv.getDiaChi(), nv.getChucVu(), nv.getTrangThaiLamViec(),
-						nv.getTrinhDo() };
+						nv.getTrinhDo(), nv.getTenDangNhap(), nv.getMatKhau() };
 				modelNhanVien.addRow(rowNV);
 			}
 		} catch (Exception e) {
@@ -249,104 +221,218 @@ public class CapNhatNhanVienForm extends JPanel implements ActionListener, Mouse
 
 		}
 		
+		// đăng ký sự kiện
 		tblNhanVien.addMouseListener(this);
 		btnTaoMoi.addActionListener(this);
 		btnCpNht.addActionListener(this);
 		btnLamMoi.addActionListener(this);
-		setLayout(null);
-		add(panel);
-		panel.setLayout(null);
-		panel.add(tabbedPane);
-		
-		JPanel pnlaccount = new JPanel();
-		tabbedPane.addTab("New tab", null, pnlaccount, null);
-		pnlaccount.setLayout(null);
-		String[] headerTaiKhoan = { "Mã NV", "Tên đăng nhập", "Mật khẩu" };
-		modelTaiKhoan = new DefaultTableModel(headerTaiKhoan, 0);
-		tblAccount = new JTable(modelTaiKhoan);
-		tblAccount.setBorder(new LineBorder(new Color(0, 0, 0)));
-		JScrollPane scpTaiKhoan = new JScrollPane(tblAccount, JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED,
-				JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
-		scpTaiKhoan.setBounds(24, 20, 547, 173);
-		pnlaccount.add(scpTaiKhoan);
-		
-		btnThemTK = new JButton("Thêm");
-		btnThemTK.setFont(new Font("Tahoma", Font.BOLD, 12));
-		btnThemTK.setBounds(962, 8, 122, 39);
-		pnlaccount.add(btnThemTK);
-		
-		btnSuaTK = new JButton("Sửa");
-		btnSuaTK.setFont(new Font("Tahoma", Font.BOLD, 12));
-		btnSuaTK.setBounds(962, 57, 122, 39);
-		pnlaccount.add(btnSuaTK);
-		
-		btnLamMoiTK = new JButton("Làm Mới");
-		btnLamMoiTK.setFont(new Font("Tahoma", Font.BOLD, 12));
-		btnLamMoiTK.setBounds(962, 106, 122, 39);
-		pnlaccount.add(btnLamMoiTK);
-		
-		 btnXoa = new JButton("Xóa");
-		btnXoa.setFont(new Font("Tahoma", Font.BOLD, 11));
-		btnXoa.setBounds(962, 165, 122, 39);
-		pnlaccount.add(btnXoa);
-		
-		JLabel lblMa = new JLabel("Mã Nhân Viên:");
-		lblMa.setFont(new Font("Tahoma", Font.BOLD, 12));
-		lblMa.setBounds(599, 34, 97, 13);
-		pnlaccount.add(lblMa);
-		
-		txtMaNhanVien = new JTextField();
-		txtMaNhanVien.setBounds(710, 29, 201, 26);
-		pnlaccount.add(txtMaNhanVien);
-		txtMaNhanVien.setColumns(10);
 		
 		JLabel lblNewLabel = new JLabel("Tên Đăng Nhập:");
 		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 12));
-		lblNewLabel.setBounds(593, 96, 103, 13);
-		pnlaccount.add(lblNewLabel);
 		
-		txtUser = new JTextField();
-		txtUser.setBounds(710, 91, 201, 26);
-		pnlaccount.add(txtUser);
-		txtUser.setColumns(10);
+		txtTenDangNhap = new JTextField();
+		txtTenDangNhap.setFont(new Font("Tahoma", Font.PLAIN, 11));
+		txtTenDangNhap.setColumns(10);
 		
-		JLabel lblNewLabel_2 = new JLabel("Mật khẩu:");
-		lblNewLabel_2.setFont(new Font("Tahoma", Font.BOLD, 12));
-		lblNewLabel_2.setBounds(601, 144, 72, 13);
-		pnlaccount.add(lblNewLabel_2);
+		JLabel lblNewLabel_1_3_2 = new JLabel("Mật Khẩu:");
+		lblNewLabel_1_3_2.setFont(new Font("Tahoma", Font.BOLD, 12));
 		
-		pwPass = new JPasswordField();
-		pwPass.setBounds(710, 142, 201, 26);
-		pnlaccount.add(pwPass);
-		panel.add(lblThngTinNhn);
-		panel.add(panel_1);
-		panel_1.setLayout(null);
-		panel_1.add(lblNewLabel_1);
-		panel_1.add(txtMa);
-		panel_1.add(lblNewLabel_1_5);
-		panel_1.add(dcsDate);
-		panel_1.add(lblNewLabel_1_1);
-		panel_1.add(txtTen);
-		panel_1.add(lblNewLabel_1_3_1);
-		panel_1.add(rdoNam);
-		panel_1.add(rdoNu);
-		panel_1.add(lblNewLabel_1_2);
-		panel_1.add(txtDiaChi);
-		panel_1.add(lblNewLabel_1_1_1);
-		panel_1.add(cmbChucVu);
-		panel_1.add(lblNewLabel_1_3);
-		panel_1.add(txtphone);
-		panel_1.add(lblNewLabel_1_3_1_1);
-		panel_1.add(rdoDangLam);
-		panel_1.add(rdoDaNghi);
-		panel_1.add(lblNewLabel_1_4);
-		panel_1.add(txtEmail);
-		panel_1.add(lblTrinhDo);
-		panel_1.add(rdoDH);
-		panel_1.add(rdoPT);
-		panel_1.add(btnTaoMoi);
-		panel_1.add(btnCpNht);
-		panel_1.add(btnLamMoi);
+		txtMatKhau = new JTextField();
+		txtMatKhau.setFont(new Font("Tahoma", Font.PLAIN, 11));
+		txtMatKhau.setColumns(10);
+		GroupLayout groupLayout = new GroupLayout(this);
+		groupLayout.setHorizontalGroup(
+			groupLayout.createParallelGroup(Alignment.LEADING)
+				.addComponent(panel, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+		);
+		groupLayout.setVerticalGroup(
+			groupLayout.createParallelGroup(Alignment.LEADING)
+				.addComponent(panel, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+		);
+		GroupLayout gl_panel = new GroupLayout(panel);
+		gl_panel.setHorizontalGroup(
+			gl_panel.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_panel.createSequentialGroup()
+					.addGap(20)
+					.addComponent(lblThngTinNhn, GroupLayout.PREFERRED_SIZE, 159, GroupLayout.PREFERRED_SIZE))
+				.addGroup(Alignment.TRAILING, gl_panel.createSequentialGroup()
+					.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+					.addComponent(tabbedPane, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+					.addContainerGap())
+				.addGroup(gl_panel.createSequentialGroup()
+					.addContainerGap()
+					.addComponent(panel_1, GroupLayout.PREFERRED_SIZE, 1157, GroupLayout.PREFERRED_SIZE)
+					.addContainerGap(36, Short.MAX_VALUE))
+		);
+		gl_panel.setVerticalGroup(
+			gl_panel.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_panel.createSequentialGroup()
+					.addGap(11)
+					.addComponent(lblThngTinNhn, GroupLayout.PREFERRED_SIZE, 24, GroupLayout.PREFERRED_SIZE)
+					.addPreferredGap(ComponentPlacement.RELATED)
+					.addComponent(panel_1, GroupLayout.PREFERRED_SIZE, 341, GroupLayout.PREFERRED_SIZE)
+					.addGap(18)
+					.addComponent(tabbedPane, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+					.addContainerGap())
+		);
+		GroupLayout gl_panel_1 = new GroupLayout(panel_1);
+		gl_panel_1.setHorizontalGroup(
+			gl_panel_1.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_panel_1.createSequentialGroup()
+					.addGap(82)
+					.addComponent(lblNewLabel_1, GroupLayout.PREFERRED_SIZE, 46, GroupLayout.PREFERRED_SIZE)
+					.addGap(36)
+					.addComponent(txtMa, GroupLayout.PREFERRED_SIZE, 296, GroupLayout.PREFERRED_SIZE)
+					.addGap(175)
+					.addComponent(lblNewLabel_1_3_1, GroupLayout.PREFERRED_SIZE, 63, GroupLayout.PREFERRED_SIZE)
+					.addGap(60)
+					.addComponent(rdoNam, GroupLayout.PREFERRED_SIZE, 77, GroupLayout.PREFERRED_SIZE)
+					.addGap(52)
+					.addComponent(rdoNu, GroupLayout.PREFERRED_SIZE, 77, GroupLayout.PREFERRED_SIZE))
+				.addGroup(gl_panel_1.createSequentialGroup()
+					.addGap(82)
+					.addComponent(lblNewLabel_1_1, GroupLayout.PREFERRED_SIZE, 46, GroupLayout.PREFERRED_SIZE)
+					.addGap(36)
+					.addComponent(txtTen, GroupLayout.PREFERRED_SIZE, 296, GroupLayout.PREFERRED_SIZE)
+					.addGap(175)
+					.addComponent(lblNewLabel_1_3_1_1, GroupLayout.PREFERRED_SIZE, 77, GroupLayout.PREFERRED_SIZE)
+					.addGap(46)
+					.addComponent(rdoDangLam, GroupLayout.PREFERRED_SIZE, 77, GroupLayout.PREFERRED_SIZE)
+					.addGap(52)
+					.addComponent(rdoDaNghi, GroupLayout.PREFERRED_SIZE, 77, GroupLayout.PREFERRED_SIZE))
+				.addGroup(gl_panel_1.createSequentialGroup()
+					.addGap(82)
+					.addComponent(lblNewLabel_1_2, GroupLayout.PREFERRED_SIZE, 63, GroupLayout.PREFERRED_SIZE)
+					.addGap(19)
+					.addComponent(txtDiaChi, GroupLayout.PREFERRED_SIZE, 296, GroupLayout.PREFERRED_SIZE)
+					.addGap(175)
+					.addComponent(lblTrinhDo, GroupLayout.PREFERRED_SIZE, 63, GroupLayout.PREFERRED_SIZE)
+					.addGap(60)
+					.addComponent(rdoDH, GroupLayout.PREFERRED_SIZE, 103, GroupLayout.PREFERRED_SIZE)
+					.addGap(26)
+					.addComponent(rdoPT, GroupLayout.PREFERRED_SIZE, 103, GroupLayout.PREFERRED_SIZE))
+				.addGroup(gl_panel_1.createSequentialGroup()
+					.addGap(82)
+					.addComponent(lblNewLabel_1_3, GroupLayout.PREFERRED_SIZE, 77, GroupLayout.PREFERRED_SIZE)
+					.addGap(5)
+					.addComponent(txtphone, GroupLayout.PREFERRED_SIZE, 296, GroupLayout.PREFERRED_SIZE)
+					.addGap(175)
+					.addComponent(lblNewLabel, GroupLayout.PREFERRED_SIZE, 103, GroupLayout.PREFERRED_SIZE)
+					.addGap(20)
+					.addComponent(txtTenDangNhap, GroupLayout.PREFERRED_SIZE, 296, GroupLayout.PREFERRED_SIZE))
+				.addGroup(gl_panel_1.createSequentialGroup()
+					.addGap(82)
+					.addComponent(lblNewLabel_1_4, GroupLayout.PREFERRED_SIZE, 46, GroupLayout.PREFERRED_SIZE)
+					.addGap(36)
+					.addComponent(txtEmail, GroupLayout.PREFERRED_SIZE, 296, GroupLayout.PREFERRED_SIZE)
+					.addGap(175)
+					.addComponent(lblNewLabel_1_3_2, GroupLayout.PREFERRED_SIZE, 77, GroupLayout.PREFERRED_SIZE)
+					.addGap(46)
+					.addComponent(txtMatKhau, GroupLayout.PREFERRED_SIZE, 296, GroupLayout.PREFERRED_SIZE))
+				.addGroup(gl_panel_1.createSequentialGroup()
+					.addGap(82)
+					.addComponent(lblNewLabel_1_5)
+					.addGap(19)
+					.addComponent(dcsDate, GroupLayout.PREFERRED_SIZE, 191, GroupLayout.PREFERRED_SIZE))
+				.addGroup(gl_panel_1.createSequentialGroup()
+					.addGap(82)
+					.addComponent(lblNewLabel_1_1_1, GroupLayout.PREFERRED_SIZE, 63, GroupLayout.PREFERRED_SIZE)
+					.addGap(19)
+					.addComponent(cmbChucVu, GroupLayout.PREFERRED_SIZE, 169, GroupLayout.PREFERRED_SIZE))
+				.addGroup(gl_panel_1.createSequentialGroup()
+					.addGap(301)
+					.addComponent(btnTaoMoi, GroupLayout.PREFERRED_SIZE, 114, GroupLayout.PREFERRED_SIZE)
+					.addGap(82)
+					.addComponent(btnCpNht, GroupLayout.PREFERRED_SIZE, 131, GroupLayout.PREFERRED_SIZE)
+					.addGap(62)
+					.addComponent(btnLamMoi, GroupLayout.PREFERRED_SIZE, 119, GroupLayout.PREFERRED_SIZE))
+		);
+		gl_panel_1.setVerticalGroup(
+			gl_panel_1.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_panel_1.createSequentialGroup()
+					.addGap(25)
+					.addGroup(gl_panel_1.createParallelGroup(Alignment.LEADING)
+						.addGroup(gl_panel_1.createSequentialGroup()
+							.addGap(5)
+							.addComponent(lblNewLabel_1, GroupLayout.PREFERRED_SIZE, 14, GroupLayout.PREFERRED_SIZE))
+						.addComponent(txtMa, GroupLayout.PREFERRED_SIZE, 26, GroupLayout.PREFERRED_SIZE)
+						.addGroup(gl_panel_1.createSequentialGroup()
+							.addGap(5)
+							.addComponent(lblNewLabel_1_3_1, GroupLayout.PREFERRED_SIZE, 14, GroupLayout.PREFERRED_SIZE))
+						.addGroup(gl_panel_1.createSequentialGroup()
+							.addGap(1)
+							.addComponent(rdoNam))
+						.addGroup(gl_panel_1.createSequentialGroup()
+							.addGap(1)
+							.addComponent(rdoNu)))
+					.addGap(4)
+					.addGroup(gl_panel_1.createParallelGroup(Alignment.LEADING)
+						.addGroup(gl_panel_1.createSequentialGroup()
+							.addGap(4)
+							.addComponent(lblNewLabel_1_1, GroupLayout.PREFERRED_SIZE, 14, GroupLayout.PREFERRED_SIZE))
+						.addComponent(txtTen, GroupLayout.PREFERRED_SIZE, 26, GroupLayout.PREFERRED_SIZE)
+						.addGroup(gl_panel_1.createSequentialGroup()
+							.addGap(4)
+							.addComponent(lblNewLabel_1_3_1_1, GroupLayout.PREFERRED_SIZE, 14, GroupLayout.PREFERRED_SIZE))
+						.addComponent(rdoDangLam)
+						.addComponent(rdoDaNghi))
+					.addGap(4)
+					.addGroup(gl_panel_1.createParallelGroup(Alignment.LEADING)
+						.addGroup(gl_panel_1.createSequentialGroup()
+							.addGap(3)
+							.addComponent(lblNewLabel_1_2, GroupLayout.PREFERRED_SIZE, 14, GroupLayout.PREFERRED_SIZE))
+						.addComponent(txtDiaChi, GroupLayout.PREFERRED_SIZE, 26, GroupLayout.PREFERRED_SIZE)
+						.addGroup(gl_panel_1.createSequentialGroup()
+							.addGap(3)
+							.addComponent(lblTrinhDo, GroupLayout.PREFERRED_SIZE, 14, GroupLayout.PREFERRED_SIZE))
+						.addComponent(rdoDH, GroupLayout.PREFERRED_SIZE, 21, GroupLayout.PREFERRED_SIZE)
+						.addComponent(rdoPT, GroupLayout.PREFERRED_SIZE, 21, GroupLayout.PREFERRED_SIZE))
+					.addGap(2)
+					.addGroup(gl_panel_1.createParallelGroup(Alignment.LEADING)
+						.addGroup(gl_panel_1.createSequentialGroup()
+							.addGap(5)
+							.addComponent(lblNewLabel_1_3, GroupLayout.PREFERRED_SIZE, 14, GroupLayout.PREFERRED_SIZE))
+						.addGroup(gl_panel_1.createSequentialGroup()
+							.addGap(1)
+							.addComponent(txtphone, GroupLayout.PREFERRED_SIZE, 26, GroupLayout.PREFERRED_SIZE))
+						.addGroup(gl_panel_1.createSequentialGroup()
+							.addGap(6)
+							.addComponent(lblNewLabel, GroupLayout.PREFERRED_SIZE, 13, GroupLayout.PREFERRED_SIZE))
+						.addComponent(txtTenDangNhap, GroupLayout.PREFERRED_SIZE, 26, GroupLayout.PREFERRED_SIZE))
+					.addGap(5)
+					.addGroup(gl_panel_1.createParallelGroup(Alignment.LEADING)
+						.addGroup(gl_panel_1.createSequentialGroup()
+							.addGap(5)
+							.addComponent(lblNewLabel_1_4, GroupLayout.PREFERRED_SIZE, 14, GroupLayout.PREFERRED_SIZE))
+						.addComponent(txtEmail, GroupLayout.PREFERRED_SIZE, 26, GroupLayout.PREFERRED_SIZE)
+						.addGroup(gl_panel_1.createSequentialGroup()
+							.addGap(12)
+							.addComponent(lblNewLabel_1_3_2, GroupLayout.PREFERRED_SIZE, 14, GroupLayout.PREFERRED_SIZE))
+						.addGroup(gl_panel_1.createSequentialGroup()
+							.addGap(4)
+							.addComponent(txtMatKhau, GroupLayout.PREFERRED_SIZE, 26, GroupLayout.PREFERRED_SIZE)))
+					.addGap(6)
+					.addGroup(gl_panel_1.createParallelGroup(Alignment.LEADING)
+						.addComponent(lblNewLabel_1_5, GroupLayout.PREFERRED_SIZE, 14, GroupLayout.PREFERRED_SIZE)
+						.addComponent(dcsDate, GroupLayout.PREFERRED_SIZE, 26, GroupLayout.PREFERRED_SIZE))
+					.addGap(10)
+					.addGroup(gl_panel_1.createParallelGroup(Alignment.LEADING)
+						.addGroup(gl_panel_1.createSequentialGroup()
+							.addGap(3)
+							.addComponent(lblNewLabel_1_1_1, GroupLayout.PREFERRED_SIZE, 14, GroupLayout.PREFERRED_SIZE))
+						.addComponent(cmbChucVu, GroupLayout.PREFERRED_SIZE, 26, GroupLayout.PREFERRED_SIZE))
+					.addGap(20)
+					.addGroup(gl_panel_1.createParallelGroup(Alignment.LEADING)
+						.addGroup(gl_panel_1.createParallelGroup(Alignment.BASELINE)
+							.addComponent(btnCpNht, GroupLayout.PREFERRED_SIZE, 41, GroupLayout.PREFERRED_SIZE)
+							.addComponent(btnTaoMoi, GroupLayout.PREFERRED_SIZE, 41, GroupLayout.PREFERRED_SIZE))
+						.addGroup(gl_panel_1.createSequentialGroup()
+							.addGap(1)
+							.addComponent(btnLamMoi, GroupLayout.PREFERRED_SIZE, 39, GroupLayout.PREFERRED_SIZE))))
+		);
+		panel_1.setLayout(gl_panel_1);
+		panel.setLayout(gl_panel);
+		setLayout(groupLayout);
 	}
 
 	private void showMessage(String message, JTextField txt) {
@@ -361,11 +447,17 @@ public class CapNhatNhanVienForm extends JPanel implements ActionListener, Mouse
 		JOptionPane.showMessageDialog(null, message);
 		rdoNam2.requestFocus();
 	}
+	private void showMessage3(String message, JComboBox<String> cmbChucVu2) {
+		JOptionPane.showMessageDialog(null, message);
+		cmbChucVu2.requestFocus();
+	}
 	private NhanVien revertNhanVienFromtxt() {
 		NhanVien nv = null;
 		String maNV = txtMa.getText();
 		String hoTen = txtTen.getText();
 		Date ngaySinh= dcsDate.getDate();
+		String tenDangNhap =txtTenDangNhap.getText();
+		String matKhau=txtMatKhau.getText();
 		String gioiTinh = null;
 		if (rdoNam.isSelected())
 			gioiTinh = rdoNam.getText();
@@ -386,7 +478,7 @@ public class CapNhatNhanVienForm extends JPanel implements ActionListener, Mouse
 		else if(rdoPT.isSelected())
 			trinhDo= rdoPT.getText();
 		nv = new NhanVien(maNV, hoTen,new java.sql.Date(ngaySinh.getTime()), gioiTinh,dienThoai, email, diaChi,chucVu,
-				trangThaiLamViec,trinhDo);
+				trangThaiLamViec,trinhDo,tenDangNhap, matKhau);
 		return nv;
 	}
 
@@ -397,6 +489,8 @@ public class CapNhatNhanVienForm extends JPanel implements ActionListener, Mouse
 		String dienThoai = txtphone.getText().trim();
 		String email = txtEmail.getText().trim();
 		String diaChi= txtDiaChi.getText().trim();
+		String tenDangNhap= txtTenDangNhap.getText().trim();
+		String matKhau= txtMatKhau.getText().trim();
 		 boolean isMaleSelected = rdoNam.isSelected();
 		 boolean isFemaleSelected = rdoNu.isSelected();
 		 boolean isDangLam = rdoDangLam.isSelected();
@@ -413,10 +507,6 @@ public class CapNhatNhanVienForm extends JPanel implements ActionListener, Mouse
 		}
 		if (hoTen.length() <= 0 || !hoTen.matches("^[A-Z]\\p{L}+(\\s[A-Z]\\p{L}*)+")) {
 			showMessage("Tên Nhân viên không hợp lệ ", txtTen);
-			return false;
-		}
-		if (diaChi.length() <= 0) {
-			showMessage(" Địa chỉ không hợp lệ", txtDiaChi);
 			return false;
 		}
 		if (dienThoai.length() <= 0 || !dienThoai.matches("^0[1-9]{9}")) {
@@ -442,6 +532,15 @@ public class CapNhatNhanVienForm extends JPanel implements ActionListener, Mouse
 	        showMessage1("Ngày sinh không được để trống", dcsDate);
 	        return false;
 	    }
+		if (diaChi.length() <= 0) {
+			showMessage(" Địa chỉ không được rỗng", txtDiaChi);
+			return false;
+		}
+		
+		if (cmbChucVu.getSelectedItem() == "") {
+	        showMessage3("Chức vụ không được rỗng", cmbChucVu);
+	        return false;
+	    }
 		if (!isMaleSelected && !isFemaleSelected) {
 	        showMessage2("Vui lòng chọn giới tính", rdoNam);
 	        return false;
@@ -454,8 +553,29 @@ public class CapNhatNhanVienForm extends JPanel implements ActionListener, Mouse
 	        showMessage2("Vui lòng chọn trình độ", rdoDH);
 	        return false;
 	    }
+		if (tenDangNhap.length() <= 0) {
+		    showMessage("Tên đăng nhập không được rỗng", txtTenDangNhap);
+		    return false;
+		}
 
-	    return true;
+		if (!tenDangNhap.matches("NV\\d{4}")) {
+		    showMessage("Tên đăng nhập phải có dạng NV\\d{4}", txtTenDangNhap);
+		    return false;
+		}
+
+		// Compare tenDangNhap with maNV
+		if (!tenDangNhap.equals(maNV)) {
+		    showMessage("Tên đăng nhập phải giống với Mã nhân viên", txtTenDangNhap);
+		    return false;
+		}
+
+
+		if (matKhau.length() <= 0) {
+			showMessage(" Mật khẩu không được rỗng", txtMatKhau);
+			return false;
+		}
+
+	    return true;	
 	}
 	
 
@@ -483,7 +603,7 @@ public class CapNhatNhanVienForm extends JPanel implements ActionListener, Mouse
 		if (validDataNhanVien() && checkExist()) {
 			NhanVien nv = revertNhanVienFromtxt();
 			Object[] rowNV = { nv.getMaNhanVien(), nv.getTenNhanVien(), nv.getNgaySinh(), nv.getGioiTinh(),nv.getSoDienThoai() ,nv.getEmail(),
-	nv.getDiaChi(), nv.getChucVu(), nv.getTrangThaiLamViec(), nv.getTrinhDo() };
+	nv.getDiaChi(), nv.getChucVu(), nv.getTrangThaiLamViec(), nv.getTrinhDo(), nv.getTenDangNhap(), nv.getMatKhau() };
 			modelNhanVien.addRow(rowNV);
 			NhanVien.themNhanVien(nv);
 			JOptionPane.showMessageDialog(null, "Thêm thành công");
@@ -509,6 +629,8 @@ public class CapNhatNhanVienForm extends JPanel implements ActionListener, Mouse
 			modelNhanVien.setValueAt(nv.getChucVu(), row, 7);
 			modelNhanVien.setValueAt(nv.getTrangThaiLamViec(), row, 8);
 			modelNhanVien.setValueAt(nv.getTrinhDo(), row, 9);
+			modelNhanVien.setValueAt(nv.getTenDangNhap(), row, 10);
+			modelNhanVien.setValueAt(nv.getMatKhau(), row, 11);
 			modelNhanVien.fireTableRowsUpdated(row, row);
 			NhanVien.suaNhanVien(nv);
 			JOptionPane.showMessageDialog(null,
@@ -526,6 +648,14 @@ public class CapNhatNhanVienForm extends JPanel implements ActionListener, Mouse
 		txtphone.setText("");
 		txtEmail.setText("");
 		txtDiaChi.setText("");
+		txtTenDangNhap.setText("");
+		txtMatKhau.setText("");
+		cmbChucVu.setSelectedItem("");
+		btngrpGioiTinh.clearSelection();
+		btngrpTrangThai.clearSelection();
+		btngrpTrinhDo.clearSelection();
+		
+
 
 	}
 
@@ -537,6 +667,8 @@ public class CapNhatNhanVienForm extends JPanel implements ActionListener, Mouse
 			if (rowNV >= 0) {
 				txtMa.setText(tblNhanVien.getValueAt(rowNV, 0).toString());
 				txtTen.setText(tblNhanVien.getValueAt(rowNV, 1).toString());
+				txtTenDangNhap.setText(tblNhanVien.getValueAt(rowNV, 10).toString());
+				txtMatKhau.setText(tblNhanVien.getValueAt(rowNV, 11).toString());
 				//Lấy dữ liệu từ Jdatechooser
 				// Lấy giá trị ngày tháng từ cột 2 của hàng có chỉ số rowNV
 				String ngaySinhStr = tblNhanVien.getValueAt(rowNV, 2).toString();
@@ -576,7 +708,8 @@ public class CapNhatNhanVienForm extends JPanel implements ActionListener, Mouse
 					rdoDH.setSelected(true);
 					rdoPT.setSelected(false);
 				}
-						
+					
+				
 			}
 	}
 	}

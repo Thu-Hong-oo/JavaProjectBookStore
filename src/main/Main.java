@@ -31,6 +31,7 @@ import view.TimKiemKhachHangForm;
 import view.TimKiemNhanVienForm;
 import view.TimKiemSanPhamForm;
 import view.XemHoaDonForm;
+import view.ThongKe2;
 
 public class Main extends javax.swing.JFrame {
 	// Variables declaration - do not modify//GEN-BEGIN:variables

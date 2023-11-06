@@ -8,135 +8,100 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.swing.DefaultComboBoxModel;
+
 import connectDB.ConnectDB;
 import entity.KhachHang;
 import entity.SanPham;
 
 public class SanPham_DAO {
+	
 	ConnectDB con = ConnectDB.getInstance();
 
+	public String getTenByMaSP(String maSP) {
+		Connection con = ConnectDB.getInstance().getConnection();
+		PreparedStatement stmt = null;
 
-    // Thêm sản phẩm vào cơ sở dữ liệu
-    public boolean themSanPham(SanPham sanPham) {
-    	Connection con = ConnectDB.getInstance().getConnection();
-    	PreparedStatement statement = null;
-    	String sql = "INSERT INTO SanPham (maSanPham, tenSanPham, tacGia, nhaCungCap, loai, moTa, hinhAnh, giaNhap, giaBan, soLuong) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-        try {
-            statement.setString(1, sanPham.getMaSP());
-            statement.setString(2, sanPham.getTenSP());
-            statement.setString(3, sanPham.getTacGia());
-            statement.setString(4, sanPham.getMaNCC());
-            statement.setString(5, sanPham.getLoaiSanPham());
-            statement.setString(6, sanPham.getMoTa());
-            statement.setInt(7, sanPham.getSoLuong());
-            statement.setDouble(8, sanPham.getGiaNhap());
-            statement.setDouble(9, sanPham.getGiaBan());
-            statement.setString(10, sanPham.getMaKM());
-            statement.setBytes(11, sanPham.getHinhAnh());
+		String tenSP = "";
+		String sqlGetSP = "SELECT tenSP from SanPham where maSP = ?";
+		try {
+			stmt = con.prepareStatement(sqlGetSP);
+			stmt.setString(1, maSP);
+			ResultSet rs = stmt.executeQuery();
+			if (rs.next()) {
+				tenSP = rs.getString("tenSP");
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return tenSP;
+	}
+	
+	public String getTenByDonGia(String maSP) {
+		Connection con = ConnectDB.getInstance().getConnection();
+		PreparedStatement stmt = null;
 
-            int rowsAffected = statement.executeUpdate();
-            return rowsAffected > 0;
-        } catch (SQLException e) {
-            e.printStackTrace();
-            return false;
-        }
-    }
+		String tenSP = "";
+		String sqlGetSP = "SELECT tenSP from SanPham where maSP = ?";
+		try {
+			stmt = con.prepareStatement(sqlGetSP);
+			stmt.setString(1, maSP);
+			ResultSet rs = stmt.executeQuery();
+			if (rs.next()) {
+				tenSP = rs.getString("tenSP");
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return tenSP;
+	}
+	public void close(PreparedStatement stmt) {
+		if (stmt != null)
+			try {
+				stmt.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+	}
+	public double getGiaBanByMaSP(String maSP) {
+	    Connection con = ConnectDB.getInstance().getConnection();
+	    PreparedStatement stmt = null;
+	    double giaBan = 0.0; // Đặt giá trị mặc định cho giaBan là 0
 
-    // Cập nhật thông tin sản phẩm
-    public boolean capNhatSanPham(SanPham sanPham) {
-        String sql = "UPDATE SanPham SET tenSanPham = ?, tacGia = ?, nhaCungCap = ?, loai = ?, moTa = ?, hinhAnh = ?, giaNhap = ?, giaBan = ?, soLuong = ? WHERE maSanPham = ?";
-        Connection con = ConnectDB.getInstance().getConnection();
-    	PreparedStatement statement = null;
-        try {
-            statement.setString(1, sanPham.getTenSP());
-            statement.setString(2, sanPham.getTacGia());
-            statement.setString(3, sanPham.getMaNCC());
-            statement.setString(4, sanPham.getLoaiSanPham());
-            statement.setString(5, sanPham.getMoTa());
-            statement.setBytes(6, sanPham.getHinhAnh());
-            statement.setDouble(7, sanPham.getGiaNhap());
-            statement.setDouble(8, sanPham.getGiaBan());
-            statement.setInt(9, sanPham.getSoLuong());
-            statement.setString(10, sanPham.getMaSP());
+	    String sqlGetSP = "SELECT giaBan FROM SanPham WHERE maSP = ?";
+	    try {
+	        stmt = con.prepareStatement(sqlGetSP);
+	        stmt.setString(1, maSP);
+	        ResultSet rs = stmt.executeQuery();
+	        if (rs.next()) {
+	            // Lấy giá trị từ cơ sở dữ liệu
+	            giaBan = rs.getDouble("giaBan");
+	        }
+	    } catch (SQLException e) {
+	        e.printStackTrace();
+	    }
+	    return giaBan;
+	}
+	public DefaultComboBoxModel<String> loadComBoBox(String tenCot, String tenBang) {
+		ArrayList<String> data = new ArrayList<String>();
+		try {
+			con.connect();
+			String sql = "SELECT " + tenCot + " FROM " + tenBang;
+			Statement statement = con.getConnection().createStatement();
+			ResultSet rs = statement.executeQuery(sql);
+			while (rs.next()) {
+				String item = rs.getString(tenCot);
+				data.add(item);
 
-            int rowsAffected = statement.executeUpdate();
-            return rowsAffected > 0;
-        } catch (SQLException e) {
-            e.printStackTrace();
-            return false;
-        }
-    }
+			}
 
-//    // Xóa sản phẩm dựa trên mã sản phẩm
-//    public boolean xoaSanPham(String maSanPham) {
-//        String sql = "DELETE FROM SanPham WHERE maSanPham = ?";
-//        Connection con = ConnectDB.getInstance().getConnection();
-//    	PreparedStatement statement = null;
-//        try  {
-//            statement.setString(1, maSanPham);
-//
-//            int rowsAffected = statement.executeUpdate();
-//            return rowsAffected > 0;
-//        } catch (SQLException e) {
-//            e.printStackTrace();
-//            return false;
-//        }
-//    }
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return new DefaultComboBoxModel<String>(data.toArray(new String[0]));
 
-//    public List<SanPham> getAllSanPham() {
-//        List<SanPham> danhSachSanPham = new ArrayList<SanPham>();
-//        try {
-//            con.connect();
-//            String sql = "SELECT * FROM SanPham";
-//            Statement statement = con.getConnection().createStatement();
-//            ResultSet rs = statement.executeQuery(sql);
-//            while (rs.next()) {
-//                danhSachSanPham.add(new SanPham(rs.getString("maSP"), rs.getString("tenSP"),
-//                        rs.getString("tacGia"), rs.getString("maNCC"),
-//                        rs.getString("loaiSanPham"), rs.getString("moTa"),rs.getInt("SoLuong"), rs.getDouble("giaNhap"), rs.getDouble("giaBan"), rs.getString("maKM"),rs.getBytes("hinhAnh")));
-//            }
-//
-//        } catch (SQLException e) {
-//            e.printStackTrace();
-//        }
-//        return danhSachSanPham;
-//    }
-    public List<SanPham> getAllSach() {
-        List<SanPham> danhSachSach = new ArrayList<SanPham>();
-        try {
-            con.connect();
-            String sql = "SELECT * FROM SanPham WHERE maSP LIKE 'SPS%'";
-            Statement statement = con.getConnection().createStatement();
-            ResultSet rs = statement.executeQuery(sql);
-            while (rs.next()) {
-                danhSachSach.add(new SanPham(rs.getString("maSP"), rs.getString("tenSP"),
-                        rs.getString("tacGia"), rs.getString("maNCC"),
-                        rs.getString("loaiSanPham"), rs.getString("moTa"), rs.getInt("SoLuong"), rs.getDouble("giaNhap"), rs.getDouble("giaBan"), rs.getString("maKM"), rs.getBytes("hinhAnh")));
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return danhSachSach;
-    }
+	}
 
-    public List<SanPham> getAllVanPhongPham() {
-        List<SanPham> danhSachVanPhongPham = new ArrayList<SanPham>();
-        try {
-            con.connect();
-            String sql = "SELECT * FROM SanPham WHERE maSP LIKE 'SPV%' OR maSP LIKE 'SPQ%'";
-
-            Statement statement = con.getConnection().createStatement();
-            ResultSet rs = statement.executeQuery(sql);
-            while (rs.next()) {
-                danhSachVanPhongPham.add(new SanPham(rs.getString("maSP"), rs.getString("tenSP"),
-                        rs.getString("tacGia"), rs.getString("maNCC"),
-                        rs.getString("loaiSanPham"), rs.getString("moTa"), rs.getInt("SoLuong"), rs.getDouble("giaNhap"), rs.getDouble("giaBan"), rs.getString("maKM"), rs.getBytes("hinhAnh")));
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return danhSachVanPhongPham;
-    }
 
 
 }

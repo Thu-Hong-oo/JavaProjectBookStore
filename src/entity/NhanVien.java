@@ -13,11 +13,15 @@ public class NhanVien {
 	private String chucVu;
 	private String trangThaiLamViec;
 	private String trinhDo;
+	private String TenDangNhap;
+	private String matKhau;
 	public NhanVien() {
 		super();
 	}
+
 	public NhanVien(String maNhanVien, String tenNhanVien, Date ngaySinh, String gioiTinh, String soDienThoai,
-			String email, String diaChi, String chucVu, String trangThaiLamViec, String trinhDo) {
+			String email, String diaChi, String chucVu, String trangThaiLamViec, String trinhDo, String tenDangNhap,
+			String matKhau) {
 		super();
 		this.maNhanVien = maNhanVien;
 		this.tenNhanVien = tenNhanVien;
@@ -29,9 +33,25 @@ public class NhanVien {
 		this.chucVu = chucVu;
 		this.trangThaiLamViec = trangThaiLamViec;
 		this.trinhDo = trinhDo;
+		this.TenDangNhap = tenDangNhap;
+		this.matKhau = matKhau;
 	}
+	
+
 	public String getMaNhanVien() {
 		return maNhanVien;
+	}
+	public String getTenDangNhap() {
+		return TenDangNhap;
+	}
+	public void setTenDangNhap(String tenDangNhap) {
+		TenDangNhap = tenDangNhap;
+	}
+	public String getMatKhau() {
+		return matKhau;
+	}
+	public void setMatKhau(String matKhau) {
+		this.matKhau = matKhau;
 	}
 	public void setMaNhanVien(String maNhanVien) {
 		this.maNhanVien = maNhanVien;
